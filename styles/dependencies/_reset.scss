@@ -1,0 +1,24 @@
+﻿article, aside, details, figcaption, figure, img,
+footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6,
+ul, li, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style-position: inside;
+}
+
+address {
+    font-style: normal;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}

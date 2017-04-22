@@ -1,0 +1,277 @@
+﻿{
+  "name": "experience",
+  "color": "#FFF",
+  "children": [
+    {
+      "name": "Back-End",
+      "skill": "backend",
+      "children": [
+        {
+          "name": ".NET",
+          "skill": "net",
+          "size": 85,
+          "children": [
+            {
+              "name": "ASP.NET MVC",
+              "skill": "aspnetmvc",
+              "size": 90
+            },
+            {
+              "name": "ASP.NET Web API",
+              "skill": "aspnetwebapi",
+              "size": 90
+            },
+            {
+              "name": "ADO.NET",
+              "skill": "adonet",
+              "size": 90
+            },
+            {
+              "name": "Windows Communication Foundation",
+              "skill": "wcf",
+              "size": 75
+            },
+            {
+              "name": "Windows Presentation Foundation",
+              "skill": "wpf",
+              "size": 65
+            },
+            {
+              "name": "Xamarin Forms",
+              "skill": "xamarin",
+              "size": 45
+            },
+            {
+              "name": "Entity Framework",
+              "skill": "entityframework",
+              "size": 75
+            },
+            {
+              "name": "LINQ",
+              "skill": "linq",
+              "size": 80
+            },
+            {
+              "name": "Windows Azure",
+              "skill": "azure",
+              "color": "#55A4DA",
+              "size": 20
+            }
+          ]
+        },
+        {
+          "name": "Languages",
+          "skill": "languages",
+          "children": [
+            {
+              "name": "C#",
+              "skill": "csharp",
+              "size": 90
+            },
+            {
+              "name": "Visual Basic",
+              "skill": "visualbasic",
+              "size": 60
+            }
+          ]
+        },
+        {
+          "name": "Database",
+          "skill": "database",
+          "children": [
+            {
+              "name": "SQL",
+              "skill": "sql",
+              "size": 60
+            },
+            {
+              "name": "Microsoft SQL Server",
+              "skill": "sqlserver",
+              "size": 60
+            }
+          ]
+        },
+        {
+          "name": "IDE Tools",
+          "skill": "idetools",
+          "children": [
+            {
+              "name": "Microsoft Visual Studio",
+              "skill": "visualstudio",
+              "size": 95
+            },
+            {
+              "name": "Microsoft Team Foundation Server",
+              "skill": "tfs",
+              "size": 80
+            },
+            {
+              "name": "Internet Information Services (IIS)",
+              "skill": "iis",
+              "size": 55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Front-End",
+      "skill": "frontend",
+      "children": [
+        {
+          "name": "HTML5",
+          "skill": "html5",
+          "size": 95
+        },
+        {
+          "name": "CSS3",
+          "skill": "css3",
+          "size": 95,
+          "children": [
+            {
+              "name": "SASS",
+              "skill": "sass",
+              "size": 90
+            },
+            {
+              "name": "LESS",
+              "skill": "less",
+              "size": 60
+            }
+          ]
+        },
+        {
+          "name": "JavaScript",
+          "size": 90,
+          "skill": "javascript",
+          "children": [
+            {
+              "name": "jQuery",
+              "skill": "jquery",
+              "size": 90
+            },
+            {
+              "name": "NodeJS",
+              "skill": "nodejs",
+              "size": 40
+            },
+            {
+              "name": "ThreeJS",
+              "skill": "threejs",
+              "size": 40
+            },
+            {
+              "name": "WebGL",
+              "skill": "webgl",
+              "size": 40
+            },
+            {
+              "name": "D3.js",
+              "skill": "d3",
+              "size": 75
+            }
+          ]
+        },
+        {
+          "name": "XAML",
+          "skill": "xaml",
+          "size": 60
+        },
+        {
+          "name": "Expression Blend",
+          "skill": "expressionblend",
+          "size": 30
+        },
+        {
+          "name": "Frameworks",
+          "skill": "frameworks",
+          "children": [
+            {
+              "name": "Bootstrap",
+              "skill": "bootstrap",
+              "size": 60
+            },
+            {
+              "name": "PhoneGap",
+              "skill": "phonegap",
+              "size": 60
+            },
+            {
+              "name": "AngularJS",
+              "skill": "angularjs",
+              "size": 60
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "UX",
+      "skill": "ux",
+      "children": [
+        {
+          "name": "Usability Analysis",
+          "skill": "usability",
+          "size": 75
+        },
+        {
+          "name": "Wireframing",
+          "skill": "wireframing",
+          "size": 70
+        },
+        {
+          "name": "Information Architecture",
+          "skill": "ia",
+          "size": 70
+        },
+        {
+          "name": "Benchmarking",
+          "skill": "benchmarking",
+          "size": 75
+        },
+        {
+          "name": "Responsive Design",
+          "skill": "responsive",
+          "size": 90
+        },
+        {
+          "name": "Interface Design",
+          "skill": "design",
+          "size": 50
+        },
+        {
+          "name": "Interaction Design",
+          "skill": "interaction",
+          "size": 80
+        },
+        {
+          "name": "Tools",
+          "skill": "tools",
+          "children": [
+            {
+              "name": "Adobe Photoshop",
+              "skill": "photoshop",
+              "size": 65
+            },
+            {
+              "name": "Adobe Illustrator",
+              "skill": "illustrator",
+              "size": 80
+            },
+            {
+              "name": "Adobe After Effects",
+              "skill": "aftereffects",
+              "size": 30
+            },
+            {
+              "name": "Maxom Cinema 4D",
+              "skill": "cinema4d",
+              "size": 15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

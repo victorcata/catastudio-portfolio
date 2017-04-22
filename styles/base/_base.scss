@@ -1,0 +1,63 @@
+@import "helpers/_variables.scss";
+@import "helpers/_mixins.scss";
+
+* {
+    @include box-sizing(border-box);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    font-family: 'Open Sans', sans-serif;
+    background-color: $white;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Exo', sans-serif;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+img {
+    max-width: 100%;
+}
+
+input, textarea {
+    padding: .5em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-button {
+    height: 10px;
+    background: #EEE;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #EEE;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $grey3;
+}

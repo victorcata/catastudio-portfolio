@@ -1,0 +1,68 @@
+﻿//-------------------------------------------
+//      box-shadow
+//-------------------------------------------
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+            box-shadow: $shadow;
+}
+
+//-------------------------------------------
+//      box-shadow
+//-------------------------------------------
+@mixin linear-gradient($params) {
+    background-image: -webkit-linear-gradient($params);
+    background-image: linear-gradient($params);
+}
+
+//-------------------------------------------
+//      transform
+//-------------------------------------------
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+        -ms-transform: $transform;
+            transform: $transform;
+}
+
+//-------------------------------------------
+//      transform-origin
+//-------------------------------------------
+@mixin transform-origin($value) {
+    -webkit-transform-origin: $value;
+        -ms-transform-origin: $value;
+            transform-origin: $value;
+}
+
+//-------------------------------------------
+//      perspective
+//-------------------------------------------
+@mixin perspective($value) {
+    -webkit-perspective: $value;
+    -moz-perspective: $value;
+            perspective: $value;
+}
+
+//-------------------------------------------
+//      transition
+//-------------------------------------------
+@mixin transition($params...){
+    @include transform(translateZ(0));
+    -webkit-transition: $params;
+            transition: $params;
+}
+
+//-------------------------------------------
+//      animation
+//-------------------------------------------
+@mixin animation($param) {
+    @include transform(translateZ(0));
+            animation: $param;
+}
+
+//-------------------------------------------
+//      box-sizing
+//-------------------------------------------
+@mixin box-sizing($param){
+    -webkit-box-sizing: $param;
+       -moz-box-sizing: $param;
+            box-sizing: $param;
+}

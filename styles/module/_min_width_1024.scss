@@ -1,0 +1,116 @@
+﻿@import "../helpers/_variables.scss";
+@import "../helpers/_mixins.scss";
+
+//-------------------------------------------
+//      HEADER
+//-------------------------------------------
+#l-header {
+    &.is-ontop {
+        .menu {
+            padding: 1em .5em;
+        }
+    }
+}
+
+//-------------------------------------------
+//      MENU
+//-------------------------------------------
+.menu {
+    display: block;
+    margin-top: 0;
+    padding: 1em .5em;
+    text-align: right;
+    background-color: inherit;
+    opacity: 1;
+
+    ul {
+        display: block;
+        background-color: transparent;
+    }
+
+    li {
+        display: inline-block;
+        padding: 0;
+        border-bottom: none;
+    }
+}
+
+//-------------------------------------------
+//      MENU HAMBURGUER
+//-------------------------------------------
+#nav-toggle {
+    display: none;
+}
+
+//-------------------------------------------
+//      LOGO CATASTUDIO
+//-------------------------------------------
+.logo-catastudio {
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 3em;
+}
+
+//-------------------------------------------
+//      HOME
+//-------------------------------------------
+#l-home {
+    min-height: 100vh;
+}
+
+/*.info-container {
+    .profession {
+        padding-top: 5rem;
+    }
+}*/
+
+// ------------------------
+//      GEARS
+// ------------------------
+.gears {
+    left: 30%;
+    width: 80%;
+    max-width: none;
+    opacity: .9;
+    @include transform(none);
+}
+
+//-------------------------------------------
+//      WORK
+//-------------------------------------------
+#l-work {
+    min-height: 100vh;
+
+    .section-header {
+        padding-top: 10vh;
+    }
+
+    .section-desc {
+        max-width: 60%;
+        font-size: 1.2em;
+        padding-bottom: 10vh;
+    }
+}
+
+.work-container {
+    width: auto;
+
+    ul {
+        width: auto;
+    }
+}
+
+//-------------------------------------------
+//      CONTACTO
+//-------------------------------------------
+#l-contact {
+    .contact {
+        width: 60%;
+    }
+}
+//-------------------------------------------
+//      IMAGE VCH SHADOW
+//-------------------------------------------
+.img-shadow {
+    width: 60%;
+}

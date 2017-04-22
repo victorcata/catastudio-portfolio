@@ -1,0 +1,54 @@
+﻿.bg-mm {
+    background: url(/Content/assets/images/work/thumb-mediam.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-caixa {
+    background: url(/Content/assets/images/work/thumb_caixa.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-mp {
+    background: url(/Content/assets/images/work/thumb-mediap.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-vithas {
+    background: url(/Content/assets/images/projects/vithas.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-mediaplayer {
+    background: url(/Content/assets/images/work/thumb-mediaplayer.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-pfc {
+    background: url(/Content/assets/images/work/thumb-pfc.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-webcastcss {
+    background: url(/Content/assets/images/work/thumb-webcastcss.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-dataviz {
+    background: url(/Content/assets/images/work/thumb-dataviz.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-addon {
+    background: url(/Content/assets/images/work/thumb-addon.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-mediaset {
+    background: url(/Content/assets/images/work/thumb-mediaset.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.bg-pfm {
+    background: url(/Content/assets/images/work/thumb-pfm.jpg) no-repeat center;
+    background-size: cover;
+}

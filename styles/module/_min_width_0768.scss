@@ -1,0 +1,283 @@
+﻿@import "../helpers/_variables.scss";
+@import "../helpers/_mixins.scss";
+
+//-------------------------------------------
+//      HOME
+//-------------------------------------------
+#l-home {
+    display: table;
+    width: 100%;
+}
+
+.info-container {
+    display: table-cell;
+    vertical-align: middle;
+    max-width: 50%;
+    padding: 0 0 0 5%;
+}
+
+//-------------------------------------------
+//      IMAGE VCH
+//-------------------------------------------
+.img-vch {
+    max-width: 700px;
+}
+
+.gears {
+    svg {
+        #cinema4d_x5F_gear, #aftereffects_x5F_border, #illustrator_x5F_gear, #photoshop_x5F_borde, #html_x5F_borde, #css_x5F_borde, #javascript_x5F_borde, #visualstudio_x5F_borde, #mcsd_border, #mcsd_center, #tfs_x5F_gear, #net_x5F_borde, #sql_x5F_borde {
+            @include transform-origin(50% 50%);
+        }
+
+        #cinema4d_x5F_gear {
+            /*@include animation(rotateInv 10s 1s linear infinite);*/
+        }
+
+        #aftereffects_x5F_border {
+            @include animation(rotate 13s 1.2s linear infinite);
+        }
+
+        #illustrator_x5F_gear {
+            @include animation(rotateInv 13s 1.4s linear infinite);
+        }
+
+        #photoshop_x5F_borde {
+            @include animation(rotateInv 16s 1.4s linear infinite);
+        }
+
+        #html_x5F_borde {
+            @include animation(rotate 20s 1.6s linear infinite);
+        }
+
+        #css_x5F_borde {
+            @include animation(rotateInv 16s 1.8s linear infinite);
+        }
+
+        #javascript_x5F_borde {
+            @include animation(rotateInv 20s 1.8s linear infinite);
+        }
+
+        #visualstudio_x5F_borde {
+            @include animation(rotate 25s 2s linear infinite);
+        }
+
+        #mcsd_border, #mcsd_center {
+            @include animation(rotateInv 16s 2.4s linear infinite);
+        }
+
+        #tfs_x5F_gear {
+            @include animation(rotateInv 16s 2.4s linear infinite);
+        }
+
+        #net_x5F_borde {
+            @include animation(rotateInv 25s 2.8s linear infinite);
+        }
+
+        #sql_x5F_borde {
+            @include animation(rotate 16s 3s linear infinite);
+        }
+    }
+
+    @-webkit-keyframes rotate {
+        from {
+            @include transform(rotateZ(0deg) translateZ(0));
+        }
+
+        to {
+            @include transform(rotateZ(360deg) translateZ(0));
+        }
+    }
+
+    @-webkit-keyframes rotateInv {
+        from {
+            @include transform(rotateZ(0deg) translateZ(0));
+        }
+
+        to {
+            @include transform(rotateZ(-360deg) translateZ(0));
+        }
+    }
+
+    @keyframes rotate {
+        from {
+            @include transform(rotateZ(0deg) translateZ(0));
+        }
+
+        to {
+            @include transform(rotateZ(360deg) translateZ(0));
+        }
+    }
+
+    @keyframes rotateInv {
+        from {
+            @include transform(rotateZ(0deg) translateZ(0));
+        }
+
+        to {
+            @include transform(rotateZ(-360deg) translateZ(0));
+        }
+    }
+}
+//-------------------------------------------
+//      TIMELINE
+//-------------------------------------------
+.timeline {
+    .studies {
+        padding-right: 2%;
+    }
+
+    .jobs {
+        padding-left: 2%;
+    }
+
+    .studies, .jobs {
+        float: left;
+        width: 50%;
+    }
+
+    .items:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+//-------------------------------------------
+//      CERTIFICATIONS
+//-------------------------------------------
+#l-certifications {
+    .certifications-container {
+        > ul {
+            display: flex;
+            display: -ms-flexbox;
+            flex-wrap: wrap;
+            margin: auto;
+
+            > li {
+                flex: 1 50%;
+                -ms-flex: 1 1 50%;
+                max-width: 50%;
+            }
+        }
+    }
+
+    .bg-mcsd {
+        top: -20%;
+        right: 0;
+        width: 30%;
+    }
+
+    .bg-mcsa {
+        top: -20%;
+        left: -5%;
+        width: 30%;
+    }
+
+    .bg-idf {
+        bottom: -20%;
+        right: -15%;
+        width: 60%;
+    }
+}
+
+.certification {
+    padding: .5em;
+    display: flex;
+    display: -ms-flexbox;
+
+    .logo {
+        float: none;
+        display: flex;
+        display: -ms-flexbox;
+        align-self: center;
+    }
+}
+
+//-------------------------------------------
+//      SKILLS
+//-------------------------------------------
+#l-skills {
+    .section-container {
+        display: flex;
+        display: -ms-flexbox;
+        flex-wrap: wrap;
+        padding-right: 0;
+    }
+}
+
+.skill-container {
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    max-width: 33.33%;
+    flex-flow: column;
+    padding: 0 .5em;
+
+    h2 {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .skill {
+        font-size: .7rem;
+    }
+}
+
+//-------------------------------------------
+//      CONTACTO
+//-------------------------------------------
+#l-contact {
+    display: table;
+    width: 100%;
+    min-height: 90vh;
+    padding-left: 3%;
+
+    .contact {
+        display: table-cell;
+        vertical-align: middle;
+        max-width: none;
+    }
+
+    .contact-content:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .contact-summary,
+    .contact-form {
+        float: left;
+        width: 50%;
+    }
+
+    .contact-summary {
+        font-size: 1em;
+        padding-right: 1em;
+    }
+}
+
+//-------------------------------------------
+//      IMAGE VCH SHADOW
+//-------------------------------------------
+.img-shadow {
+    width: 100%;
+}
+
+//-------------------------------------------
+//      FOOTER
+//-------------------------------------------
+#l-footer {
+    display: flex;
+    display: -ms-flexbox;
+    height: 100px;
+
+    .footer-logo {
+        position: absolute;
+    }
+
+    address, .footer-logo {
+        flex: 1;
+        -ms-flex: 1 1 auto;
+        align-self: center;
+    }
+}

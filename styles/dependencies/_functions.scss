@@ -1,0 +1,22 @@
+﻿
+@function shadow($repetitions, $bg_color) {
+    $output: null;
+    $opacity: .5;
+    $separator: null;
+
+    @for $i from 1 through $repetitions {
+        @if ($i < $repetitions) {
+            $separator: #{','};
+        }
+        @else {
+            $separator: #{';'};
+        }
+
+        $opacity: $opacity - .01;
+        $color: mix($bg_color, rgba(0, 0, 0, $opacity));
+        $pos: $i / 2;
+        $output: append(#{$output}, #{$pos}px #{$pos}px $color $separator);
+    }
+
+    @return $output;
+}

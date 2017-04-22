@@ -1,0 +1,225 @@
+﻿//-------------------------------------------
+//      SKILLS
+//-------------------------------------------
+.sprite-skill {
+    background-image: url(/Content/assets/images/sprite-skills.png);
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+
+    // ------ UX ------
+    &.is-usability {
+        background-position-x: 0;
+        background-position-y: -30px;
+    }
+
+    &.is-wireframing {
+        background-position-x: -30px;
+        background-position-y: -30px;
+    }
+
+    &.is-information {
+        background-position-x: -60px;
+        background-position-y: -30px;
+    }
+
+    &.is-benchmarking {
+        background-position-x: 0;
+        background-position-y: -60px;
+    }
+
+    &.is-responsive {
+        background-position-x: -90px;
+        background-position-y: -30px;
+    }
+
+    &.is-design {
+        background-position-x: -120px;
+        background-position-y: -30px;
+    }
+
+    &.is-interaction {
+        background-position-x: -120px;
+        background-position-y: 0;
+    }
+
+    &.is-photoshop {
+        background-position-x: 0;
+        background-position-y: 0;
+    }
+
+    &.is-illustrator {
+        background-position-x: -30px;
+        background-position-y: 0;
+    }
+
+    &.is-after-effects {
+        background-position-x: -60px;
+        background-position-y: 0;
+    }
+
+    &.is-cinema4d {
+        background-position-x: -90px;
+        background-position-y: 0;
+    }
+    // ------ FRONT ------
+    &.is-html5 {
+        background-position-x: -30px;
+        background-position-y: -60px;
+    }
+
+    &.is-css3 {
+        background-position-x: -60px;
+        background-position-y: -60px;
+    }
+
+    &.is-javascript {
+        background-position-x: -90px;
+        background-position-y: -60px;
+    }
+
+    &.is-jquery {
+        background-position-x: -120px;
+        background-position-y: -60px;
+    }
+
+    &.is-xaml {
+        background-position-x: 0;
+        background-position-y: -90px;
+    }
+
+    &.is-nodejs {
+        background-position-x: -30px;
+        background-position-y: -90px;
+    }
+
+    &.is-visualstudio {
+        background-position-x: -60px;
+        background-position-y: -90px;
+    }
+
+    &.is-bootstrap {
+        background-position-x: -90px;
+        background-position-y: -90px;
+    }
+
+    &.is-phonegap {
+        background-position-x: -120px;
+        background-position-y: -90px;
+    }
+
+    &.is-angular {
+        background-position-x: 0;
+        background-position-y: -120px;
+    }
+
+    &.is-sass {
+        background-position-x: -30px;
+        background-position-y: -120px;
+    }
+
+    &.is-less {
+        background-position-x: -60px;
+        background-position-y: -120px;
+    }
+
+    &.is-three {
+        background-position-x: -90px;
+        background-position-y: -120px;
+    }
+
+    &.is-webgl {
+        background-position-x: -120px;
+        background-position-y: -120px;
+    }
+
+    &.is-d3 {
+        background-position-x: 0;
+        background-position-y: -150px;
+    }
+    // ------ BACK ------
+    &.is-microsoft {
+        background-position-x: -30px;
+        background-position-y: -150px;
+    }
+
+    &.is-csharp {
+        background-position-x: -60px;
+        background-position-y: -150px;
+    }
+
+    &.is-vb {
+        background-position-x: -90px;
+        background-position-y: -150px;
+    }
+
+    &.is-xamarin {
+        background-position-x: -120px;
+        background-position-y: -150px;
+    }
+
+    &.is-sql {
+        background-position-x: 0;
+        background-position-y: -180px;
+    }
+
+    &.is-sqlserver {
+        background-position-x: -30px;
+        background-position-y: -180px;
+    }
+
+    &.is-azure {
+        background-position-x: -60px;
+        background-position-y: -180px;
+    }
+}
+
+//-------------------------------------------
+//      COMPANIES
+//-------------------------------------------
+.sprite-companies {
+    background-image: url(/Content/assets/images/sprite-companies.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+
+    &.is-urjc {
+        background-position-x: 0;
+        background-position-y: 0;
+    }
+
+    &.is-redradix {
+        background-position-x: -50px;
+        background-position-y: 0;
+    }
+
+    &.is-iai {
+        background-position-x: -100px;
+        background-position-y: 0;
+    }
+
+    &.is-aula10 {
+        background-position-x: -150px;
+        background-position-y: 0;
+    }
+
+    &.is-fictizia {
+        background-position-x: 0;
+        background-position-y: -50px;
+    }
+
+    &.is-euve {
+        background-position-x: -50px;
+        background-position-y: -50px;
+    }
+
+    &.is-delarue {
+        background-position-x: -100px;
+        background-position-y: -50px;
+    }
+
+    &.is-avanade {
+        background-position-x: -150px;
+        background-position-y: -50px;
+    }
+}

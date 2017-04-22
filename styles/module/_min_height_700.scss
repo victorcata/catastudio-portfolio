@@ -1,0 +1,13 @@
+﻿//-------------------------------------------
+//      REDES SOCIALES
+//-------------------------------------------
+.social-media {
+    &.is-floating {
+        bottom: .5em;
+        right: .5em;
+
+        [class^="icon"] {
+            font-size: 2.5em;
+        }
+    }
+}
