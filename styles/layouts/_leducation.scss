@@ -1,0 +1,13 @@
+#l-education {
+    box-shadow: 0 0 2px $black;
+
+    .section-header {
+        display: none;
+    }
+
+    li {
+        display: inline-block;
+        padding: 1em;
+        vertical-align: top;
+    }
+}

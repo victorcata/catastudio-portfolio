@@ -1,0 +1,55 @@
+#l-header {
+    position: fixed;
+    width: 100%;
+    text-align: right;
+    z-index: 100;
+
+    &.is-ontop {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.3) 60%, white 80%, white 100%);
+
+        .logo-catastudio {
+            opacity: 0;
+        }
+    }
+
+    &.is-open {
+        background: $grey3;
+        box-shadow: 0 0 5px $black;
+
+        #nav-toggle span {
+            background: $white;
+        }
+
+        .menu-opt {
+            color: $white;
+        }
+
+        #nav-toggle span:nth-child(1) {
+            top: 18px;
+            width: 0%;
+            left: 50%;
+        }
+
+        #nav-toggle span:nth-child(2) {
+            @include transform(rotate(45deg));
+        }
+
+        #nav-toggle span:nth-child(3) {
+            @include transform(rotate(-45deg));
+        }
+
+        #nav-toggle span:nth-child(4) {
+            top: 18px;
+            width: 0%;
+            left: 50%;
+        }
+    }
+
+    @include tabletLandscape {
+        &.is-ontop {
+            .menu {
+                padding: 1em .5em;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.img-shadow {
+    position: absolute;
+    width: 250%;
+    max-width: none;
+    right: 0;
+    bottom: 0;
+    opacity: .2;
+    z-index: -1;
+
+    @include mobileLandscape {
+        width: 150%;
+    }
+
+    @include tabletPortrait {
+        width: 100%;
+    }
+
+    @include tabletLandscape {
+        width: 60%;
+    }
+
+    @include desktop {
+        opacity: .8;
+    }
+}

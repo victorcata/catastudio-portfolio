@@ -1,0 +1,41 @@
+.logo-catastudio {
+    display: flex;
+    display: -ms-flexbox;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2.5em;
+    color: $grey3;
+    font-weight: 900;
+    opacity: 1;
+    z-index: 100;
+    @include transition(opacity .3s ease);
+
+    .logo-title {
+        display: none;
+    }
+
+    @include mobileLandscape {
+        .logo-title {
+            display: block;
+            align-self: center;
+            font-size: .35em;
+            font-weight: 200;
+        }
+
+        .icon-catastudio {
+            padding: 0 .25em;
+        }
+    }
+
+    @include tabletLandscape {
+        top: 1.5rem;
+        left: 1.5rem;
+        font-size: 3em;
+    }
+
+    @include desktop {
+        top: 2rem;
+        left: 2rem;
+    }
+}

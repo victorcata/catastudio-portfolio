@@ -1,0 +1,28 @@
+#l-contact {
+    padding-bottom: 0;
+    background: radial-gradient(100% 100% at 5% 10%, #FFF, rgba(156, 184, 195, 0.15));
+
+    @include tabletPortrait {
+        display: table;
+        width: 100%;
+        min-height: 90vh;
+        padding-left: 3%;
+
+        .contact-content:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .contact-summary,
+        .contact-form {
+            float: left;
+            width: 50%;
+        }
+
+        .contact-summary {
+            font-size: 1em;
+            padding-right: 1em;
+        }
+    }
+}

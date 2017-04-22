@@ -1,0 +1,48 @@
+.timeline {
+    h1 {
+        padding: 1em 0 .5em 0;
+        font-size: 1.5em;
+        font-weight: 900;
+        color: $grey_darker;
+    }
+
+    .studies .card {
+        border-left: 10px solid $blue;
+    }
+
+    .jobs .card {
+        border-left: 10px solid $orange;
+        flex-flow: column;
+
+        .card-logo {
+            position: absolute;
+            top: .5em;
+            right: .5em;
+        }
+    }
+
+    .line, .tiles, .timeline-leyend {
+        display: none;
+    }
+
+    @include tabletPortrait {
+        .studies {
+            padding-right: 2%;
+        }
+
+        .jobs {
+            padding-left: 2%;
+        }
+
+        .studies, .jobs {
+            float: left;
+            width: 50%;
+        }
+
+        .items:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+}

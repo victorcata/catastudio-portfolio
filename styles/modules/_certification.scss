@@ -1,0 +1,82 @@
+.certification {
+    position: relative;
+    display: block;
+    min-height: 85px;
+    padding-bottom: 1.5em;
+    font-size: .9em;
+    z-index: 10;
+
+    .logo {
+        float: left;
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        text-align: center;
+
+        > img {
+            max-height: 100%;
+            margin: auto;
+            align-self: center;
+        }
+    }
+
+    .certification-details {
+        padding-left: 1em;
+        overflow: hidden;
+        line-height: 1.4;
+        align-self: center;
+    }
+
+    .certification-name {
+        font-weight: 900;
+        color: $grey_darker;
+    }
+
+    .certification-center, .certification-date {
+        color: $grey_dark;
+    }
+
+    .certification-center span {
+        font-size: .8em;
+    }
+
+    .certification-exams {
+        font-size: .9em;
+
+        li {
+            display: block;
+            padding: 0 !important;
+            padding-left: .5em;
+            width: auto;
+
+            &:before {
+                content: '- ';
+            }
+        }
+    }
+
+    @include tabletPortrait {
+        padding: .5em;
+        display: flex;
+        display: -ms-flexbox;
+
+        .logo {
+            float: none;
+            display: flex;
+            display: -ms-flexbox;
+            align-self: center;
+        }
+    }
+
+    @include desktop {
+        .logo {
+            width: 100px;
+            min-width: 100px;
+            height: 100px;
+        }
+
+        .certification-name {
+            font-size: 1.2em;
+        }
+    }
+}

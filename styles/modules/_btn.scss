@@ -1,0 +1,49 @@
+.btn {
+    padding: 1em 1.2em;
+    border: none;
+    background-color: $grey3; //#7b98a4;
+    color: $white;
+    cursor: pointer;
+    outline: none;
+
+    &:hover, &:focus {
+        background-color: #376680;
+        color: $white;
+    }
+
+    &:active {
+        box-shadow: inset 1px 1px 6px #24292c;
+    }
+}
+
+.btn-top {
+    position: fixed;
+    width: 45px;
+    height: 50px;
+    right: 0;
+    bottom: 105px;
+    border: none;
+    border-radius: 30px 0 0 30px;
+    background-color: rgba(52, 61, 66, .5);
+    z-index: 100;
+    cursor: pointer;
+    @include transition(background-color $animation ease-in-out, right $animation ease-in-out);
+    outline: none;
+
+    &:after {
+        content: '\e904';
+        font-family: 'icons';
+        line-height: 50px;
+        font-size: 2em;
+        padding-left: .2em;
+        color: $white;
+    }
+
+    &:hover {
+        background-color: rgba(52, 61, 66, 1);
+    }
+
+    &.is-hidden {
+        right: -50px;
+    }
+}

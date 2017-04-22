@@ -1,0 +1,128 @@
+.gears {
+    position: absolute;
+    bottom: 0;
+    right: -50%;
+    width: 160%;
+    max-width: 850px;
+    opacity: .1;
+    z-index: 10;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include mobileLandscape {
+        top: 7%;
+        right: -20%;
+        width: 120%;
+    }
+
+    @include tabletPortrait {
+        svg {
+            #cinema4d_x5F_gear, #aftereffects_x5F_border, #illustrator_x5F_gear, #photoshop_x5F_borde, #html_x5F_borde, #css_x5F_borde, #javascript_x5F_borde, #visualstudio_x5F_borde, #mcsd_border, #mcsd_center, #tfs_x5F_gear, #net_x5F_borde, #sql_x5F_borde {
+                @include transform-origin(50% 50%);
+            }
+
+            #cinema4d_x5F_gear {
+                @include animation(rotateInv 10s 1s linear infinite);
+            }
+
+            #aftereffects_x5F_border {
+                @include animation(rotate 13s 1.2s linear infinite);
+            }
+
+            #illustrator_x5F_gear {
+                @include animation(rotateInv 13s 1.4s linear infinite);
+            }
+
+            #photoshop_x5F_borde {
+                @include animation(rotateInv 16s 1.4s linear infinite);
+            }
+
+            #html_x5F_borde {
+                @include animation(rotate 20s 1.6s linear infinite);
+            }
+
+            #css_x5F_borde {
+                @include animation(rotateInv 16s 1.8s linear infinite);
+            }
+
+            #javascript_x5F_borde {
+                @include animation(rotateInv 20s 1.8s linear infinite);
+            }
+
+            #visualstudio_x5F_borde {
+                @include animation(rotate 25s 2s linear infinite);
+            }
+
+            #mcsd_border, #mcsd_center {
+                @include animation(rotateInv 16s 2.4s linear infinite);
+            }
+
+            #tfs_x5F_gear {
+                @include animation(rotateInv 16s 2.4s linear infinite);
+            }
+
+            #net_x5F_borde {
+                @include animation(rotateInv 25s 2.8s linear infinite);
+            }
+
+            #sql_x5F_borde {
+                @include animation(rotate 16s 3s linear infinite);
+            }
+        }
+
+        @-webkit-keyframes rotate {
+            from {
+                @include transform(rotateZ(0deg) translateZ(0));
+            }
+
+            to {
+                @include transform(rotateZ(360deg) translateZ(0));
+            }
+        }
+
+        @-webkit-keyframes rotateInv {
+            from {
+                @include transform(rotateZ(0deg) translateZ(0));
+            }
+
+            to {
+                @include transform(rotateZ(-360deg) translateZ(0));
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                @include transform(rotateZ(0deg) translateZ(0));
+            }
+
+            to {
+                @include transform(rotateZ(360deg) translateZ(0));
+            }
+        }
+
+        @keyframes rotateInv {
+            from {
+                @include transform(rotateZ(0deg) translateZ(0));
+            }
+
+            to {
+                @include transform(rotateZ(-360deg) translateZ(0));
+            }
+        }
+    }
+
+    @include tabletLandscape {
+        left: 30%;
+        width: 80%;
+        max-width: none;
+        opacity: .9;
+        @include transform(none);
+    }
+
+    @include desktop {
+        width: 70%;
+    }
+}

@@ -1,0 +1,72 @@
+@import "../dependencies/_globals.scss";
+@import "../dependencies/_colors.scss";
+@import "../dependencies/_mixins.scss";
+
+.menu {
+    margin-top: -4em;
+    @include transition(all $animation ease-in-out);
+    z-index: 90;
+
+    ul {
+        display: none;
+        overflow: hidden;
+        @include transition(all $animation ease-in-out);
+    }
+
+    li {
+        margin: 0 1.5em;
+        padding: 1em 0;
+        text-align: center;
+        border-bottom: 1px solid $white;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .menu-opt {
+        display: block;
+        cursor: pointer;
+        color: $grey3;
+    }
+
+    .border {
+        display: block;
+        width: 0%;
+        height: 1px;
+        margin-left: 50%;
+        background-color: $grey3;
+        @include transition(width .15s ease-in-out, margin-left .15s ease-in-out, opacity 1s ease-in-out);
+    }
+
+    li:hover {
+        .border {
+            width: 100%;
+            margin-left: 0%;
+        }
+    }
+ 
+    @include tabletLandscape {
+        display: block;
+        margin-top: 0;
+        padding: 1em .5em;
+        text-align: right;
+        background-color: inherit;
+        opacity: 1;
+
+        ul {
+            display: block;
+            background-color: transparent;
+        }
+
+        li {
+            display: inline-block;
+            padding: 0;
+            border-bottom: none;
+        }
+    }
+
+    @include desktop {
+        padding: 2em 1em;
+    }
+}

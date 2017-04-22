@@ -1,0 +1,71 @@
+.card {
+    position: relative;
+    display: flex;
+    display: -ms-flexbox;
+    padding-left: .25em;
+    margin-bottom: .5em;
+    font-size: .9em;
+    background-color: $white;
+    border: 1px solid #CCC;
+
+    .card-logo {
+        -ms-flex: 1 0 auto;
+        width: 50px;
+        align-self: center;
+        padding: .5em;
+        padding-right: .5em;
+    }
+
+    .card-info {
+        flex: 2;
+        -ms-flex: 2 1 auto;
+        padding: .5em .5em 1em .5em;
+        align-self: center;
+    }
+
+    .card-year {
+        color: #666;
+
+        em {
+            font-style: normal;
+        }
+    }
+
+    .card-center {
+        color: #666;
+    }
+
+    .card-name {
+        font-size: 1.1em;
+        line-height: 1.4;
+    }
+
+    .card-desc {
+        padding-top: .5em;
+        font-size: .9em;
+    }
+
+    @include desktopFullhd {
+        font-size: .9rem;
+
+        &.is-redradix .card-connector {
+            left: 60%;
+        }
+
+        &.is-master-design {
+            left: 40%;
+        }
+
+        &.is-isdi .card-connector {
+            left: 68%;
+        }
+
+        &.is-fictizia-node {
+            left: 70%;
+
+            .card-connector {
+                left: 48%;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.social-media {
+    padding: .5em 0;
+    text-align: center;
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        margin-left: .25em;
+        text-decoration: none;
+        color: $white;
+        font-size: 3em;
+        @include transition(color $animation ease-in-out, font-size $animation ease-in-out);
+    }
+
+    li:first-child a {
+        margin-left: 0;
+    }
+
+    @include desktop {
+        position: fixed;
+        bottom: 1em;
+        right: 1em;
+
+        &.is-floating {
+            padding-bottom: 0;
+
+            [class^="icon"] {
+                font-size: 3em;
+                margin-left: .8rem;
+            }
+
+            .icon-twitter {
+                color: #00aced;
+            }
+
+            .icon-linkedin {
+                color: #0077B5;
+            }
+
+            .icon-github {
+                color: #000;
+            }
+        }
+    }
+}

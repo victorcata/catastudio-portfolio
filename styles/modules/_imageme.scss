@@ -1,0 +1,16 @@
+.img-vch {
+    position: absolute;
+    width: 110%;
+    max-width: 500px;
+    left: 40%;
+    bottom: 0;
+    z-index: 20;
+
+    @include mobileLandscape {
+        left: 50%;
+    }
+
+    @include tabletPortrait {
+        max-width: 700px;
+    }
+}

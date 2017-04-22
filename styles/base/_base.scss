@@ -1,5 +1,6 @@
-@import "helpers/_variables.scss";
-@import "helpers/_mixins.scss";
+@import "../dependencies/_globals.scss";
+@import "../dependencies/_colors.scss";
+@import "../dependencies/_mixins.scss";
 
 * {
     @include box-sizing(border-box);

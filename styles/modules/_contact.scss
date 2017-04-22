@@ -1,0 +1,96 @@
+.contact {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2em 1em;
+
+    header {
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        text-align: center;
+        border-bottom: 1px solid #CCC;
+
+        h2 {
+            padding: .25em 0;
+            font-size: 1.5em;
+        }
+
+        p {
+            color: $grey_dark;
+            font-weight: normal;
+            line-height: 1.2;
+            font-size: 1.1em;
+
+            &:last-child {
+                line-height: .7;
+            }
+        }
+    }
+
+    .contact-summary, .contact-form {
+        padding-bottom: 1em;
+    }
+
+    .form-submit {
+        padding-top: .25em;
+        text-align: right;
+    }
+
+    .contact-summary {
+        font-size: .8em;
+
+
+        .contact-speech {
+            p {
+                padding: .5em 0;
+            }
+        }
+    }
+
+    .contact-form {
+        padding-top: 0;
+
+        .btn {
+            width: 100%;
+        }
+
+        input, textarea {
+            &.is-error {
+                border: 1px solid $red;
+            }
+        }
+    }
+
+    .contact-result {
+        margin-top: .5em;
+        font-size: .9em;
+        line-height: 3em;
+        text-align: center;
+        text-transform: uppercase;
+        color: $white;
+        background-color: $grey_dark;
+        @include transition(height .5s ease);
+        overflow: hidden;
+
+        &.is-success {
+            background-color: $green;
+        }
+
+        &.is-error {
+            background-color: $red;
+        }
+    }
+
+    @include tabletPortrait {
+        display: table-cell;
+        vertical-align: middle;
+        max-width: none;
+    }
+
+    @include tabletLandscape {
+        width: 60%;
+    }
+
+    @include desktopFullhd {
+        width: 50%;
+    }
+}
