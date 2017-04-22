@@ -1,0 +1,71 @@
+- 
+    var msCerts = [
+        {
+            url: "https://www.youracclaim.com/badges/98f3eea2-7daa-4682-8114-230f0d1e995f",
+            title: "Go to the MCSA badge",
+            center: "Microsoft",
+            reference: "ID: MS0430408195",
+            name: "MCSA: Web Applications",
+            exams: [
+                "Programming in HTML5 with JavaScript and CSS3",
+                "Developing ASP.NET MVC Web Applications"
+            ]
+        },
+        {
+            url: "https://www.youracclaim.com/badges/0cf3285b-5af4-432e-9ea2-d17b31006240",
+            title: "Go to the MCSD badge",
+            center: "Microsoft",
+            reference: "ID: MS0430408195",
+            name: "MCSD: App Builder",
+            exams: [
+                "Developing Microsoft Azure and Web Services"
+            ]
+        }
+    ];
+    var idfCerts = [
+        "Human-Computer Interaction",
+        "Mobile User Experience Design",
+        "Web Design for Usability",
+        "Affordances: Designing Intuitive User Interfaces",
+        "The Ultimate Guide to Visual Perception and Design",
+        "Get Your Product Used: Adoption and Appropriation"
+    ];
+
+section#l-certifications.section
+    header.section-header
+        h1 CERTIFICATIONS
+    div.section-container
+        //- Microsoft certifications
+        div.certifications-container
+            ul
+                each cert in msCerts
+                    li
+                        a.certification(href=cert.url target="_blank" title=cert.title)
+                            div.logo
+                                img(src="assets/images/logo-microsoft.png")
+                            div.certification-details
+                                p.certification-center #{cert.center}
+                                    span - #{cert.reference}
+                                p.certification-name #{cert.name}
+                                div.certification-exams
+                                    ul
+                                        each exam in cert.exams
+                                            li
+                                                span #{exam}
+
+        //- IDF certifications
+        div.certifications-container
+            ul
+                each cert in idfCerts
+                    li
+                        div.certification
+                            div.logo
+                                img(src="assets/images/logo-idf.png")
+                            div.certification-details
+                                p.certification-center Interaction Design Foundation
+                                p.certification-name #{cert}
+
+        //- Certification images
+        img.bg-idf(src="Content/assets/images/cert-idf.jpg")
+        img.bg-mcsd(src="Content/assets/images/cert-mcsd.png")
+        img.bg-mcsa(src="Content/assets/images/cert-mcsa.png")

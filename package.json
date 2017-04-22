@@ -1,0 +1,26 @@
+{
+  "name": "catastudio-portfolio",
+  "version": "0.1.0",
+  "description": "Victor Catalina Portfolio",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-bulk-import": "^1.0.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "pug": "^2.0.0-beta.12"
+  },
+  "devDependencies": {
+    "gulp-pug": "^3.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorcata/catastudio-portfolio.git"
+  },
+  "author": "Victor Catalina Hermoso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorcata/catastudio-portfolio/issues"
+  },
+  "homepage": "https://github.com/victorcata/catastudio-portfolio#readme"
+}
