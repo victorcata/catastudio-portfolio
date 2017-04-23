@@ -28,18 +28,7 @@
     .level-percentage {
         width: 0;
         height: 100%;
-
-        &.is-hight {
-            background-color: $green;
-        }
-
-        &.is-medium {
-            background-color: $orange;
-        }
-
-        &.is-low {
-            background-color: $red;
-        }
+        background-color: $green;
     }
 
     + .skill-details {

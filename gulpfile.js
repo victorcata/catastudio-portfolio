@@ -2,7 +2,8 @@ var gulp = require("gulp"),
     sass = require("gulp-sass"),
     sourcemaps = require("gulp-sourcemaps"),
     bulkSass = require('gulp-sass-bulk-import'),
-    pug = require("gulp-pug");
+    pug = require("gulp-pug"),
+    concat = require("gulp-concat");
 
 /**
  * SASS
@@ -32,5 +33,17 @@ gulp.task("pug", function() {
                .pipe(gulp.dest("."));
 });
 
+/**
+ * Scripts
+ */
+gulp.task("scripts", function() {
+    return gulp.src(["./js/global.js", 
+                     "./js/sunburst.js", 
+                     "./js/skills.js", 
+                     "./js/core.js", 
+                     "./js/events.js"])
+               .pipe(concat("app.js"))
+               .pipe(gulp.dest("./js"));
+});
 
-gulp.task("default", ["sass", "pug"]);
+gulp.task("default", ["sass", "pug", "scripts"]);

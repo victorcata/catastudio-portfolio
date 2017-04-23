@@ -1,0 +1,20 @@
+.title {
+    position: relative;
+    padding: 40% 0 0 1rem;
+    line-height: 1;
+    text-align: center;
+    font-family: 'Exo', sans-serif;
+    z-index: 30;
+    
+    @include mobileLandscape {
+        padding-top: 20%;
+    }
+
+    @include tabletPortrait {
+        padding: 0 0 0 5%;
+    }
+
+    @include desktopFullhd {
+        font-size: 1.75em;
+    }
+}

@@ -1,4 +1,288 @@
-﻿var SCROLL_MOVE = 100,
+var app = app || {};
+
+/**
+*   Resolve if an element is visible on the viewport
+*   @return {boolean} True if it's visible
+*/
+Object.prototype.isOnScreen = function () {
+    var coords = this.getCoords();
+    if (coords.top < ScrollTop()) return;
+    if (coords.top > ScrollTop() && coords.top < (ScrollTop() + window.innerHeight + 100)) return true;
+    return false;
+};
+
+/**
+*   Return the coordinates top and left of an element
+*   @return {object} top and left coordinates
+*/
+Object.prototype.getCoords = function () {
+    var box = this.getBoundingClientRect(),
+        body = document.body,
+        docEl = document.documentElement;
+
+    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+
+    var clientTop = docEl.clientTop || body.clientTop || 0;
+    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+
+    var top = box.top + scrollTop - clientTop + 40;
+    var left = box.left + scrollLeft - clientLeft;
+
+    return { top: Math.round(top), left: Math.round(left) };
+}
+
+/**
+*   Sunburst chart control
+*   @param {object} element: DOM element with the container
+*   @param {string} path: URL where is the json data
+*/
+var Sunburst = function (element, path) {
+    if (element === null || element.offsetParent === null) return;
+
+    function sunBurst(selector) {
+        var _graph = {};
+        var _ux = '#2980B8',
+            _front = '#f39c12',
+            _back = '#e45e41',
+            _experience = '#FFF';
+
+        var _data,
+            _width = element.offsetWidth * 2,
+            _height = element.offsetHeight - 50,
+            _radius = Math.min(_width, _height) / 2,
+            _svg,
+            _bodyG,
+            _labelsG,
+            _partition,
+            _arc,
+            _x = d3.scaleLinear().range([0, Math.PI * 2]),
+            _y = d3.scaleSqrt().range([0, _radius]);
+
+        _graph.render = function () {
+            if (!_svg) {
+                _svg = d3.select(selector).append('svg').attr('width', _width).attr('height', _height);
+            }
+
+            renderBody();
+        }
+
+        function renderBody() {
+            if (!_bodyG) {
+                _bodyG = _svg.append('g').attr('class', 'body').attr('transform', 'translate(0, ' + _height / 2 + ')');
+            }
+
+            processData();
+            renderCircles();
+        }
+
+        function processData() {
+            _data = d3.hierarchy(_data).sum(function (d) {
+                return d.size;
+            });
+            _partition = d3.partition();
+            _arc = d3.arc()
+                        .startAngle(function (d) {
+                            var x0 = Math.min(Math.PI, _x(d.x0 / Math.PI * 1.57));
+                            return Math.max(0, x0);
+                        })
+                        .endAngle(function (d) {
+                            var x1 = Math.min(Math.PI, _x(d.x1 / Math.PI * 1.57));
+                            return Math.max(0, x1);
+                        })
+                        .innerRadius(function (d) {
+                            return Math.max(0, _y(d.y0));
+                        })
+                        .outerRadius(function (d) {
+                            return Math.max(0, _y(d.y1));
+                        });
+        }
+
+        function renderCircles() {
+            var node = _partition(_data).descendants();
+
+            var pathG = _bodyG.selectAll('path')
+                    .data(node)
+                    .enter()
+                    .append('g');
+
+            pathG.append('path')
+                .attr('data-skill', function (d) {
+                    return d.data.skill;
+                })
+                .attr('data-skill-chain', function (d) {
+                    var skill = '',
+                        path = d;
+                    for (var i = d.depth; i > 0; i--) {
+                        skill += path.data.skill + '-';
+                        path = path.parent;
+                    }
+
+                    return skill;
+                })
+                .attr('stroke', 'white')
+                .attr('fill', function (d) {
+                    var group = d.data.name;
+                    if (d.depth === 2) {
+                        group = d.parent.data.name;
+                    } else if (d.depth === 3) {
+                        group = d.parent.parent.data.name;
+                    }
+                    switch (group) {
+                        case 'UX':
+                            return d3.color(_ux).darker((d.depth - 1) / 2);
+                            return _ux;
+                            break;
+                        case 'Front-End':
+                            return d3.color(_front).darker((d.depth - 1) / 2);
+                            return _front;
+                            break;
+                        case 'Back-End':
+                            return d3.color(_back).darker((d.depth - 1) / 2);
+                            return _back;
+                            break;
+                        default:
+                            return '#FFF';
+                            break;
+                    }
+                })
+                .attr('d', _arc);
+
+            pathG.append("text")
+                    .text(function (d) {
+                        return d.data.name;
+                    })
+                    .classed("label", true)
+                    .attr("x", function (d) { return d.x; })
+                    .attr("style", function (d) {
+                        if (d.depth === 1) {
+                            return 'font-size: 1.5em';
+                        }
+                        else {
+                            return 'font-size: .9em';
+                        }
+                    })
+                    .attr("text-anchor", function (d) {
+                        if (d.depth === 1) {
+                            return 'middle';
+                        }
+                        else {
+                            return 'middle';
+                        }
+                    })
+                    .attr("transform", function (d) {
+                        if (d.depth > 0) {
+                            return "translate(" + _arc.centroid(d) + ")" +
+                                    "rotate(" + getAngle(d) + ")";
+                        } else {
+                            return null;
+                        }
+                    })
+                    .attr("dx", "6")
+                    .attr("dy", ".35em")
+                    .attr("pointer-events", "none");
+        }
+
+        function getAngle(d) {
+            var thetaDeg = (180 / Math.PI * (_arc.startAngle()(d) + _arc.endAngle()(d)) / 2 - 90);
+            var rotation = (thetaDeg > 90) ? thetaDeg - 180 : thetaDeg + 180;
+
+            return rotation;
+        }
+
+        _graph.data = function (data) {
+            if (!arguments.length) return _data;
+            _data = data;
+            return _graph;
+        }
+
+        return _graph;
+    }
+
+    d3.json(path, function (error, data) {
+        if (error) console.warn('Sunburst data not found');
+
+        element.innerHTML = null;
+        sunBurst('#' + element.id).data(data).render();
+    });
+}
+app.skills = (function(){
+    /**
+    *   Shows the level of each skill with an animation
+    */
+    function _animeLevel() {
+        for (var i = 0; i < skills.length; i++) {
+            var item = skills[i];
+            var level = item.querySelector('.level-percentage');
+            if (item.isOnScreen()) {
+                level.style.width = level.getAttribute('data-level') + '%';
+                level.style.transition = 'width 1s .250s ease-out'
+            }
+            else {
+                level.removeAttribute('style');
+            }
+        }
+    }
+
+    /**
+    * Shows the details of a skill
+    */
+    function _showDetails() {
+        var self = this;
+
+        timeoutIn = setTimeout(function () {
+            timeoutIn = null;
+
+            var details = self.querySelector('.skill-details');
+            if (details === null) return;
+
+            _highLightSunburst(self.querySelector('.skill').getAttribute('data-skill'));
+
+            var logo = self.getElementsByTagName('img')[0];
+            if (logo !== undefined) details.appendChild(logo.cloneNode(true));
+
+            function setHeight(height) {
+                setTimeout(function () {
+                    details.style.height = height + 'px'
+                    self.classList.add('is-detailed');
+                }, 50)
+            }
+            getDetailsContainerHeight(details, setHeight);
+        }, HOVER_INTENT_DELAY);
+    }
+
+    /**
+    *   Hide the details of the skill
+    */
+    function _hideDetails() {
+        var details = this.querySelector('.skill-details');
+        if (details === null) return;
+
+        if (timeoutIn !== null) {
+            clearTimeout(timeoutIn);
+            this.removeAttribute('class');
+            details.removeAttribute('style');
+            return;
+        }
+
+        var img = details.getElementsByTagName('img')[0];
+        if (img !== undefined) img.parentNode.removeChild(img);
+
+        this.removeAttribute('class');
+        details.removeAttribute('style');
+
+        _removeHighLightSunburst(this.querySelector('.skill').getAttribute('data-skill'));
+    }
+
+    return {
+        animeLevel: _animeLevel,
+        details: {
+            show: _showDetails,
+            hide: _hideDetails
+        }
+    }
+})();
+var SCROLL_MOVE = 100,
     SPEED_PARALLAX = 100,
     HOVER_INTENT_DELAY = 350,
     SUNBURST_PATH = '/Content/data/skills.json',
@@ -413,3 +697,76 @@ function SendEmail(e) {
     http.send();
     return false;
 }
+
+/**
+*   Initialize the events
+*/
+function _events() {
+    // Navigate to top button
+    navTop.addEventListener('click', ScrollToTop);
+
+    // Open top menu on mobile
+    navMenu.addEventListener('click', ToggleMenu);
+
+    // Send an email
+    btnEmail.addEventListener('click', SendEmail);
+
+    // Menu items
+    Array.prototype.forEach.call(menuOpts, function (item) {
+        item.addEventListener('mouseover', onMouseOverMenuOption);
+        item.addEventListener('mouseleave', onMouseLeaveMenuOption);
+        item.addEventListener('click', onClickMenuOption);
+    });
+
+    // Create the tiles 3d effect on the education section
+    if (tiles.length > 0) SetTiles();
+
+    // Skill elements
+    Array.prototype.forEach.call(skills, function (item) {
+        var container = item.parentElement;
+        container.addEventListener('mouseenter', app.skills.show);
+        container.addEventListener('mouseleave', app.skills.hide);
+    });
+
+    // Focus on fields
+    Array.prototype.forEach.call(fields, function (item) {
+        item.addEventListener('focus', clearFieldError);
+    });
+
+    // Shows the skill if they are visible on the moment to load the page
+    //ShowSkill();
+    app.skills.animeLevel();
+
+    // Load the sunburst chart
+    //Sunburst(sunburst, SUNBURST_PATH);
+
+    // Shows the scroll to top button if it's reloaded the page not on the top
+    ScrollTopVisibility();
+    SocialMediaVisibility();
+
+    // Functions to execute when scrolling
+    window.onscroll = function () {
+        ScrollTopVisibility();
+        HeaderVisibility();
+        Parallax();
+        app.skills.animeLevel();
+        SocialMediaVisibility();
+
+        if (_isMenuVisible()) {
+            _hideMenu();
+        }
+    }
+
+    // Elements when resize
+    window.onresize = function () {
+        SetTiles();
+        Sunburst(sunburst, SUNBURST_PATH);
+    }
+
+    // Avoid auto scrolling if touchs the page
+    //window.addEventListener('touchstart', function () {
+    //    clearInterval(intervalScrolling);
+    //});
+}
+
+_events();

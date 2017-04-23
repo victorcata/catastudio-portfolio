@@ -1,0 +1,26 @@
+-
+ var works = [
+     { title: "Media Markt", path: "/work/mediam.html", class: "bg-mm" },
+     { title: "Caixa Geral", path: "", class: "bg-caixa" },
+     { title: "Media Planning", path: "", class: "bg-mp" },
+     { title: "Data Visualization in Biology", path: "", class: "bg-pfm" },
+     { title: "Media Player", path: "", class: "bg-mediaplayer" },
+     { title: "e-Learning in Real Time Communication", path: "", class: "bg-pfc" },
+     { title: "CSS3 webcast class", path: "", class: "bg-webcastcss" },
+     { title: "Data Visualization with D3.js", path: "", class: "bg-dataviz" },
+     { title: "Addon Design for Microsoft Office", path: "", class: "bg-addon" },
+     { title: "+20 applications for Mediaset", path: "", class: "bg-mediaset" }
+ ];
+
+section#l-work.section
+    header.section-header
+        h1 SOME OF MY WORK
+    div.section-container
+        p.section-desc Most of my work has been for my company in Avanade but also for my University. So, It's for that most of my work are restricted by confidentiality agrements but here you can see some of my projects where you can see my development on the differents areas.
+        div.work-container
+            ul
+                each work in works
+                    li
+                        a.work(href=work.path, target="_self")
+                            div.work-thumb(class=work.class)
+                            p.work-title #{work.title}
