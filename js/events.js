@@ -20,13 +20,13 @@ function _events() {
     });
 
     // Create the tiles 3d effect on the education section
-    if (tiles.length > 0) SetTiles();
+    app.tiles();
 
     // Skill elements
     Array.prototype.forEach.call(skills, function (item) {
         var container = item.parentElement;
-        container.addEventListener('mouseenter', app.skills.show);
-        container.addEventListener('mouseleave', app.skills.hide);
+        container.addEventListener('mouseenter', app.skills.details.show);
+        container.addEventListener('mouseleave', app.skills.details.hide);
     });
 
     // Focus on fields

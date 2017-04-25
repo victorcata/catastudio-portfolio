@@ -16,10 +16,6 @@
     }
 
     @include tabletLandscape {
-        width: 60%;
-    }
-
-    @include desktop {
-        opacity: .8;
+        width: 40%;
     }
 }

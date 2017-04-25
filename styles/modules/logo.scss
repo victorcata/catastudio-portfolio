@@ -9,7 +9,7 @@
     font-weight: 900;
     opacity: 1;
     z-index: 100;
-    @include transition(opacity .3s ease);
+    @include transition(all .3s ease);
 
     .logo-title {
         display: none;
@@ -24,7 +24,9 @@
         }
 
         .icon-catastudio {
+            margin-left: 0;
             padding: 0 .25em;
+            @include transition(margin-left .3s ease);
         }
     }
 

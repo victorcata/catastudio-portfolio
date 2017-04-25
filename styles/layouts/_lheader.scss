@@ -5,10 +5,28 @@
     z-index: 100;
 
     &.is-ontop {
-        background: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.3) 60%, white 80%, white 100%);
+        // background: linear-gradient(to right, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.3) 60%, white 80%, white 100%);
+        background-color: $black;
 
         .logo-catastudio {
-            opacity: 0;
+            top: .15em;
+        }
+
+        .logo-title {
+            color: $white;
+        }
+
+        .icon-catastudio {
+            font-size: .8em;
+            color: $white;
+        }
+
+        .menu-opt {
+            color: $white;
+        }
+
+        .border {
+            background-color: $white;
         }
     }
 

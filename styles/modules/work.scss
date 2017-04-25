@@ -6,6 +6,9 @@
     display: flex;
     display: -ms-flexbox;
     height: 100%;
+    border: .8em solid transparent;
+    border-radius: 0;
+    @include transition(border-width .5s ease);
     @include perspective(1000px);
 
     .work-thumb {
@@ -38,8 +41,11 @@
     }
 
     &:hover {
+        border-width: 0;
+
         .work-thumb {
             background-size: 125%;
+            border-radius: 10px;
             opacity: .3;
         }
 

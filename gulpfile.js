@@ -40,6 +40,7 @@ gulp.task("scripts", function() {
     return gulp.src(["./js/global.js", 
                      "./js/sunburst.js", 
                      "./js/skills.js", 
+                     "./js/tiles.js",
                      "./js/core.js", 
                      "./js/events.js"])
                .pipe(concat("app.js"))
