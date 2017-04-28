@@ -1,0 +1,49 @@
+.layout-certs {
+    background-color: $grey_lighter;
+    box-shadow: 0 0 4px rgba(0,0,0,.2);
+    overflow: hidden;
+
+    .section-header {
+        text-align: center;
+    }
+
+    &:before, &:after, .section-body:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: .1;
+    }
+
+    &:before {
+        background: url("../assets/images/cert-mcsd.png") no-repeat;
+        background-size: 300px;
+        background-position: -80px -100px;
+        transform-origin: center;
+    }
+
+    &:after {
+        background: url("../assets/images/cert-mcsa.png") no-repeat;
+        background-size: 300px;
+        background-position: 500px 0px;
+        @include transform(rotateZ(20deg));
+    }
+
+    .section-body:before {
+        background: url("../assets/images/cert-idf.jpg") no-repeat;
+        background-position: 125% -140%;
+    }
+}
+
+.certs__section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: auto;
+
+    .cert {
+        flex: 0 33.33%;
+    }
+}

@@ -1,3 +1,36 @@
 .highlight {
-	height: 75vh;
+    display: flex;
+    padding-top: 10em;
+    overflow: hidden;
+
+    blockquote, .highlight-image {
+        align-self: center;
+    }
+
+    blockquote {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 3em;
+
+        &:before, &:after {
+            font-size: 1.5em;
+            line-height: 0;
+        }
+
+        &:before {
+            content: open-quote;
+        }
+
+        &:after {
+            content: close-quote;
+        }
+    }
+}
+
+.highlight-image {
+    opacity: .9;
+
+    img {
+        max-width: 500px;
+    }
 }

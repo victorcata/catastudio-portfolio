@@ -1,3 +1,8 @@
+// Dependencies
+@import "./dependencies/_variables.scss";
+@import "./dependencies/_colors.scss";
+@import "./dependencies/_mixins.scss";
+
 // Base
 @import "base/_reset.scss";
 @import "base/_base.scss";
@@ -5,6 +10,8 @@
 @import "base/_icons.scss";
 @import "base/_images.scss";
 @import "base/_sprites.scss";
+@import "./base/grid.scss";
+
 // Layouts
 @import "layouts/*";
 // Modules

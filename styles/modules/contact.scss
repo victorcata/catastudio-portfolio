@@ -1,7 +1,5 @@
 .contact {
     max-width: 500px;
-    margin: 0 auto;
-    padding: 2em 1em;
 
     header {
         padding-bottom: 1em;
@@ -26,24 +24,9 @@
         }
     }
 
-    .contact-summary, .contact-form {
-        padding-bottom: 1em;
-    }
-
     .form-submit {
         padding-top: .25em;
         text-align: right;
-    }
-
-    .contact-summary {
-        font-size: .8em;
-
-
-        .contact-speech {
-            p {
-                padding: .5em 0;
-            }
-        }
     }
 
     .contact-form {
@@ -78,19 +61,5 @@
         &.is-error {
             background-color: $red;
         }
-    }
-
-    @include tabletPortrait {
-        display: table-cell;
-        vertical-align: middle;
-        max-width: none;
-    }
-
-    @include tabletLandscape {
-        width: 60%;
-    }
-
-    @include desktopFullhd {
-        width: 50%;
     }
 }

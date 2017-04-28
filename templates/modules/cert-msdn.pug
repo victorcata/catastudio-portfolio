@@ -1,0 +1,17 @@
+﻿<a class="cert" href="#{cert.url}" target="_blank" title="#{cert.title}">
+    <div class="cert-logo">
+        <img src="assets/images/logo-microsoft.png" />
+    </div>
+    <div class="cert-details">
+        <p class="center">#{cert.center} <span> - #{cert.reference}</span></p>
+        <p class="name">#{cert.name}</p>
+        <div class="exams">
+            <ul>
+                each exam in cert.exams
+                    <li>
+                        <span>#{exam}</span>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</a>

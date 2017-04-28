@@ -49,8 +49,8 @@ function ScrollTopVisibility() {
 *   Controls the visibility of the header
 */
 function HeaderVisibility() {
-    var header = document.getElementById('l-header');
-    (ScrollTop() > 0) ? header.classList.add('is-ontop') : header.removeAttribute('class');
+    var header = document.getElementsByClassName("layout-header")[0];
+    (ScrollTop() > 0) ? header.classList.add('is-ontop') : header.classList.remove('is-ontop');
 }
 
 /**
@@ -59,7 +59,7 @@ function HeaderVisibility() {
 function SocialMediaVisibility() {
     var social = document.getElementById('rrss'),
         fullHeight = ScrollTop() + document.body.offsetHeight;
-    (ScrollTop() >= 0 && fullHeight < document.body.scrollHeight - 100) ? social.classList.add('is-floating') : social.classList.remove('is-floating');
+    (ScrollTop() >= 0 && fullHeight < document.body.scrollHeight) ? social.classList.add('is-floating') : social.classList.remove('is-floating');
 }
 
 /**

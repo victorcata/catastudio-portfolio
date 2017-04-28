@@ -1,12 +1,11 @@
 .gears {
     position: absolute;
-    // bottom: 0;
-    // right: -50%;
-    // width: 160%;
+    bottom: 0;
+    right: -50%;
+    width: 160%;
     width: 50%;
     left: -20%;
     top: 40%;
-    max-width: 850px;
     opacity: .2;
     z-index: 10;
 
@@ -21,7 +20,7 @@
         // width: 120%;
     }
 
-    /*
+    
     @include tabletPortrait {
         svg {
             #cinema4d_x5F_gear, #aftereffects_x5F_border, #illustrator_x5F_gear, #photoshop_x5F_borde, #html_x5F_borde, #css_x5F_borde, #javascript_x5F_borde, #visualstudio_x5F_borde, #mcsd_border, #mcsd_center, #tfs_x5F_gear, #net_x5F_borde, #sql_x5F_borde {
@@ -117,7 +116,7 @@
             }
         }
     }
-    */
+    
     
     @include tabletLandscape {
         // left: 30%;

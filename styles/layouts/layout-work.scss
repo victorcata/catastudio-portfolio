@@ -1,0 +1,21 @@
+.layout-work {
+    .section-header {
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    // TODO: PASAR A UN GENERICO
+    .section-body {
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+.work__section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 750px;
+}

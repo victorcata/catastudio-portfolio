@@ -5,7 +5,7 @@ app.skills = (function(){
     function _animeLevel() {
         for (var i = 0; i < skills.length; i++) {
             var item = skills[i];
-            var level = item.querySelector('.level-percentage');
+            var level = item.querySelector('.percentage');
             if (item.isOnScreen()) {
                 level.style.width = level.getAttribute('data-level') + '%';
                 level.style.transition = 'width 1s .250s ease-out'
@@ -25,7 +25,7 @@ app.skills = (function(){
         timeoutIn = setTimeout(function () {
             timeoutIn = null;
 
-            var details = self.querySelector('.skill-details');
+            var details = self.querySelector('.skill-extra');
             if (details === null) return;
 
             _highLightSunburst(self.querySelector('.skill').getAttribute('data-skill'));
@@ -47,7 +47,7 @@ app.skills = (function(){
     *   Hide the details of the skill
     */
     function _hideDetails() {
-        var details = this.querySelector('.skill-details');
+        var details = this.querySelector('.skill-extra');
         if (details === null) return;
 
         if (timeoutIn !== null) {

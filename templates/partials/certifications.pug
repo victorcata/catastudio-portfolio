@@ -31,41 +31,18 @@
         "Get Your Product Used: Adoption and Appropriation"
     ];
 
-section#l-certifications.section
-    header.section-header
-        h1 CERTIFICATIONS
-    div.section-container
-        //- Microsoft certifications
-        div.certifications-container
-            ul
-                each cert in msCerts
-                    li
-                        a.certification(href=cert.url target="_blank" title=cert.title)
-                            div.logo
-                                img(src="assets/images/logo-microsoft.png")
-                            div.certification-details
-                                p.certification-center #{cert.center}
-                                    span - #{cert.reference}
-                                p.certification-name #{cert.name}
-                                div.certification-exams
-                                    ul
-                                        each exam in cert.exams
-                                            li
-                                                span #{exam}
-
-        //- IDF certifications
-        div.certifications-container
-            ul
-                each cert in idfCerts
-                    li
-                        div.certification
-                            div.logo
-                                img(src="assets/images/logo-idf.png")
-                            div.certification-details
-                                p.certification-center Interaction Design Foundation
-                                p.certification-name #{cert}
-
-        //- Certification images
-        img.bg-idf(src="assets/images/cert-idf.jpg")
-        img.bg-mcsd(src="assets/images/cert-mcsd.png")
-        img.bg-mcsa(src="assets/images/cert-mcsa.png")
+<article class="layout-certs section">
+    <header class="section-header">
+        <h1>CERTIFICATIONS</h1>
+    </header>
+    <div class="section-body">
+        <div class="certs__section">
+            each cert in msCerts
+                include ../modules/cert-msdn.pug
+        </div>
+        <div class="certs__section">
+            each cert in idfCerts
+                include ../modules/cert-idf.pug
+        </div>
+    </div>
+</article>

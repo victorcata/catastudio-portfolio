@@ -1,7 +1,3 @@
-@import "../dependencies/_globals.scss";
-@import "../dependencies/_colors.scss";
-@import "../dependencies/_mixins.scss";
-
 .menu {
     margin-top: -4em;
     @include transition(all $animation ease-in-out);

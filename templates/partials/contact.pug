@@ -1,24 +1,27 @@
-section#l-contact.section
-    div.contact
-        header
-            p UX Designer
-            h2 VICTOR CATALINA HERMOSO
-            p Software Developer
-        div.contact-content
-            div.contact-summary
-                div.contact-speech
-                    p Feel free to contact with me for any reason. I'll be very happy to know about you.
-                    p Just to talk of this world, to share ideas of just to offer me a job, whatever the reason I'll be glad to ear of you and I answer you any question.
-            div.contact-form
-                div.form-row
-                    label(for="name") NAME
-                    input(id="name", name="name", type="text", placeholder="Name")
-                div.form-row
-                    label(for="email") EMAIL
-                    input(id="email", name="email", type="email", placeholder="Your email")
-                div.form-row
-                    label COMMENTS
-                    textarea(id="comments", name="comments", rows="10", placeholder="...")
-                div.form-row.form-submit
-                    button#send-email.btn SEND COMMENTS
-    img.img-shadow(src="assets/images/img-shadow.png")
+<article class="layout-contact section">
+    <header class="section-header">
+        <h1>CONTACT</h1>
+        <p>Feel free to contact with me for any reason. I'll be very happy to know about you. Just to talk of this world, to share ideas of just to offer me a job, whatever the reason I'll be glad to ear of you and I answer you any question.</p>
+    </header>
+    <div class="section-body">
+        <div class="contact">
+            <div class="contact-form">
+                <div class="form-row">
+                    <label for="name">NAME</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="form-row">
+                    <label for="email">EMAIL</label>
+                    <input id="email" name="email" type="text" placeholder="Your email" />
+                </div>
+                <div class="form-row">
+                    <label for="comments">COMMENTS</label>
+                    <textarea id="comments" name="comments" rows="10"></textarea>
+                </div>
+                <div class="form-row form-submit">
+                    <button id="send-email" class="btn">SEND COMMENTS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

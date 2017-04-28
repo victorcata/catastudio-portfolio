@@ -1,0 +1,39 @@
+.section {
+    position: relative;
+
+    @include desktop {
+        /*.section-header {
+            padding: 2em 2em 0;
+
+            h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        .section-body {
+            padding: 2em;
+        }*/
+    }
+}
+
+.section-fixed {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.section-header {
+    padding-top: 3em;
+
+    h1 {
+        font-weight: 900;
+        color: $grey_darker;
+    }
+
+    p {
+        padding: .5em 0;
+    }
+}
+
+.section-body {
+    padding: 3em 0;
+}

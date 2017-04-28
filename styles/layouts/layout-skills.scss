@@ -1,0 +1,12 @@
+.layout-skills {
+    @include tabletPortrait {
+        .section-body {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.skills__section {
+    max-width: 400px;
+}
