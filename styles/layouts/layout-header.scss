@@ -1,10 +1,11 @@
 .layout-header {
-    position: fixed;
-    width: 100%;
+    background-color: $white;
     text-align: right;
-    z-index: 100;
+    z-index: 90;
 
-    &.is-ontop {
+    &.is-fixed {
+        position: fixed;
+        width: 100%;
         background-color: rgba(25, 23, 23, 0.7);
 
         .logo-catastudio {
@@ -63,7 +64,7 @@
     }
 
     @include tabletLandscape {
-        &.is-ontop {
+        &.is-fixed {
             .menu {
                 padding: 1em .5em;
             }

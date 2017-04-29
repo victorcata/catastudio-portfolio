@@ -1,5 +1,10 @@
 .layout-home {
+    /*display: flex;
+    justify-content: center;*/
     min-height: 650px;
-    background-image: radial-gradient(100% 100% at 5% 10%, #FFF, #E8E6E9);
-    overflow: hidden;
+    background-color: $white;
+
+    .title {
+        /*align-self: center;*/
+    }
 }

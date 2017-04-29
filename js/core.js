@@ -42,15 +42,28 @@ function SetScrollTop(value) {
 */
 function ScrollTopVisibility() {
     if (navTop == undefined) return;
-    ScrollTop() == 0 ? navTop.classList.add('is-hidden') : navTop.classList.remove('is-hidden');
+
+    if (ScrollTop() == 0) {
+        navTop.classList.add('is-hidden');
+    } else {
+        navTop.classList.remove('is-hidden');
+    }
 }
 
 /**
 *   Controls the visibility of the header
 */
 function HeaderVisibility() {
-    var header = document.getElementsByClassName("layout-header")[0];
-    (ScrollTop() > 0) ? header.classList.add('is-ontop') : header.classList.remove('is-ontop');
+    let header = document.getElementsByClassName("layout-header")[0],
+        title = document.getElementsByClassName("title")[0];
+
+    if (ScrollTop() > 0) {
+        header.classList.add('is-fixed');
+        title.classList.add("is-fixed");
+    } else {
+        header.classList.remove('is-fixed');
+        title.classList.remove("is-fixed");
+    }
 }
 
 /**

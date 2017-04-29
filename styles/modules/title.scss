@@ -1,38 +1,50 @@
 .title {
-    position: relative;
-    /*padding: 40% 0 0 1rem;*/
-    line-height: 1;
+    font-size: 3em;
     text-align: center;
-    font-family: 'Exo', sans-serif;
-    z-index: 30;
-    /*transform: translate3d(0px, 0px, 0px);*/ 
-    top: 20vh; 
-    position: relative; 
-    font-family: Exo; 
-    font-weight: 900; 
-    color: #333; 
-    text-align: center; 
-    /*text-overflow: clip; 
-    white-space: pre;*/ 
-    /*text-shadow: rgba(140, 140, 140, 0.6) 1px 1px 0px, rgba(0, 0, 0, 0.670588) -1px -1px 1px;*/
 
-    > p {
-        /*font-size: 4em;*/
+    .title-name, .title-prof, .title-logo {
+        position: fixed;
+        /*right: 0;*/
+        color: $grey-darker;
+        text-align: center;
+        @include transition(top .3s linear, left .3s linear, color .3s linear);
+    }
 
-        &.profession {
-            /*font-size: 3em;*/
+    .title-name {
+        top: 25%;
+        left: 27%;
+    }
+
+    .title-prof {
+        top: 32%;
+        left: 40%;
+        color: $grey-dark;
+        font-size: .9em;
+    }
+
+    .title-logo {
+        top: 40%;
+        left: 50%;
+        font-size: 1.5em;
+    }
+
+    &.is-fixed {
+        font-size: 1.2em;
+
+        .title-name {
+            top: .8em;
+            left: 4em;
+            right: initial;
+            color: $white;
+            z-index: 100;
         }
-    }
 
-    @include mobileLandscape {
-        padding-top: 20%;
-    }
-
-    @include tabletPortrait {
-        padding: 0 0 0 5%;
-    }
-
-    @include desktopFullhd {
-        font-size: 1.75em;
+        .title-logo {
+            top: .5em;
+            left: 1em;
+            right: initial;
+            color: $white;
+            z-index: 100;
+        }
     }
 }

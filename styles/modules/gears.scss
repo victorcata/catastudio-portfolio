@@ -1,27 +1,20 @@
-.gears {
+.gears-left, .gears-right {
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    right: -50%;
-    width: 160%;
-    width: 50%;
-    left: -20%;
-    top: 40%;
     opacity: .2;
-    z-index: 10;
 
     svg {
-        width: 100%;
-        height: 100%;
+        width: 60%;
     }
 
     @include mobileLandscape {
-        // top: 7%;
-        // right: -20%;
-        // width: 120%;
     }
 
     
-    @include tabletPortrait {
+    /*@include tabletPortrait {
         svg {
             #cinema4d_x5F_gear, #aftereffects_x5F_border, #illustrator_x5F_gear, #photoshop_x5F_borde, #html_x5F_borde, #css_x5F_borde, #javascript_x5F_borde, #visualstudio_x5F_borde, #mcsd_border, #mcsd_center, #tfs_x5F_gear, #net_x5F_borde, #sql_x5F_borde {
                 @include transform-origin(50% 50%);
@@ -115,18 +108,27 @@
                 @include transform(rotateZ(-360deg) translateZ(0));
             }
         }
-    }
+    }*/
     
     
     @include tabletLandscape {
-        // left: 30%;
-        // width: 80%;
-        max-width: none;
-        //opacity: .9;
         @include transform(none);
     }
 
     @include desktop {
-        // width: 70%;
+    }
+}
+
+.gears-left {
+    svg {
+        position: absolute;
+        left: -30%;
+    }
+}
+
+.gears-right {
+    svg {
+        position: absolute;
+        right: -30%;
     }
 }
