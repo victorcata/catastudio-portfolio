@@ -1,9 +1,9 @@
 #nav-toggle {
-    position: relative;
-    display: inline-block;
+    position: absolute;
+    top: 1em;
+    right: .5em;
     width: 35px;
     height: 30px;
-    margin: 1em;
     @include transform(rotate(0deg));
     @include transition(.5s ease-in-out);
     cursor: pointer;
@@ -14,8 +14,7 @@
         position: absolute;
         height: 4px;
         width: 100%;
-        background: $grey3;
-        border-radius: 9px;
+        background: $grey-darker;
         opacity: 1;
         @include transform(rotate(0deg));
         @include transition(.25s ease-in-out);
@@ -34,7 +33,7 @@
         top: 16px;
     }
 
-    @include tabletLandscape {
+    @include tabletPortrait {
         display: none;
     }
 }

@@ -1,41 +1,17 @@
-﻿var SCROLL_MOVE = 100,
-    SPEED_PARALLAX = 100,
+﻿var SPEED_PARALLAX = 100,
     HOVER_INTENT_DELAY = 350,
     SUNBURST_PATH = '/Content/data/skills.json',
     SENDING_ERROR = 'Sorry, There was a problem sending your message.',
     SENDING_SUCCESS = 'Your messages has been send it, Thank You!';
 
 var navTop = document.getElementById('nav-top'),
-    navMenu = document.getElementById('nav-toggle'),
-    menuOpts = document.querySelectorAll('.menu li'),
-    skills = document.getElementsByClassName('skill'),
     sunburst = document.getElementById('sunburst'),
     btnEmail = document.getElementById('send-email'),
     fields = document.querySelectorAll('.contact-form input, .contact-form textarea'),
     timeoutIn = null,
     intervalScrolling = null;
 
-/**
-*   Gets the scroll top position compatibility with IE
-*   @return {int} Scroll Top value
-*/
-function ScrollTop() {
-    return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-}
 
-/**
-*   Sets the scroll top position compatibility with IE
-*   @param {int} value: Scroll Top value
-*/
-function SetScrollTop(value) {
-    if (window.navigator.userAgent.indexOf('MSIE') > 0) {
-        document.documentElement.scrollTop = value;
-        return document.documentElement.scrollTop;
-    } else {
-        document.body.scrollTop = value;
-        return document.body.scrollTop;
-    }
-}
 
 /**
 *   Controls the visibility of the scroll to top button
@@ -76,53 +52,6 @@ function SocialMediaVisibility() {
 }
 
 /**
-*   Animate the scroll to the top of the window
-*/
-function ScrollToTop() {
-    ScrollPageTo(0);
-};
-
-/**
-*   Scroll the page to a determinated position
-*   @param {object} to: Element where to scroll
-*/
-function ScrollPageTo(to) {
-    if (to === undefined || to === null) return;
-
-    var top = to.offsetTop;
-
-    intervalScrolling = setInterval(function () {
-        if (isNaN(to)) {
-            // Scroll to an element
-            if (top < ScrollTop()) {
-                //document.body.scrollTop -= SCROLL_MOVE;
-                var value = ScrollTop() - SCROLL_MOVE;
-                SetScrollTop(value);
-                if (ScrollTop() <= top) {
-                    SetScrollTop(top);
-                    clearInterval(intervalScrolling);
-                }
-            } else {
-                //document.body.scrollTop += SCROLL_MOVE;
-                var value = ScrollTop() + SCROLL_MOVE;
-                SetScrollTop(value);
-                if (ScrollTop() >= top) {
-                    //document.body.scrollTop = top;
-                    SetScrollTop(top);
-                    clearInterval(intervalScrolling);
-                }
-            }
-        } else {
-            // Scroll to the top
-            //document.body.scrollTop -= SCROLL_MOVE;
-            var value = ScrollTop() - SCROLL_MOVE;
-            SetScrollTop(value);
-            if (ScrollTop() <= 0) clearInterval(intervalScrolling);
-        }
-    }, 10);
-}
-
-/**
 *   Controls the parallax movement of the layers
 */
 function Parallax() {
@@ -143,83 +72,7 @@ function Parallax() {
     });
 };
 
-/**
-*   Shows or hides the navigation menu on mobile resolutions
-*/
-function ToggleMenu() {
-    if (this.offsetParent === null) return;
-    var menu = this.nextElementSibling.children[0];
 
-    (_isMenuVisible()) ? _hideMenu() : _showMenu();
-}
-
-function _isMenuVisible() {
-    return navMenu.nextElementSibling.children[0].style.display === 'block';
-}
-
-/**
-*   Hides the navigation menu
-*   @param {object} container: Main container
-*/
-function _hideMenu(container) {
-    var menu = navMenu.nextElementSibling.children[0],
-        container = navMenu.parentElement;
-
-    menu.style.height = 0;
-    setTimeout(function () {
-        menu.removeAttribute('style');
-        container.removeAttribute('class');
-    }, 300);
-}
-
-/**
-*   Shows the navigation menu
-*   @param {object} menu: Menu of options
-*   @param {object} container: Main container
-*/
-function _showMenu(menu, container) {
-    var menu = navMenu.nextElementSibling.children[0],
-        container = navMenu.parentElement;
-
-    menu.style.display = 'block';
-    container.classList.add('is-open');
-    var height = menu.offsetHeight;
-    menu.style.height = 0;
-    setTimeout(function () {
-        menu.style.height = height + 'px';
-    }, 50);
-}
-
-/**
-*   Change the opacity on the rest of menu items
-*/
-function onMouseOverMenuOption() {
-    for (var i = 0; i < menuOpts.length; i++) {
-        if (menuOpts[i].getAttribute('data-goto') !== this.getAttribute('data-goto')) {
-            menuOpts[i].style.opacity = .5;
-        }
-    }
-}
-
-/**
-*   Restore the opacity on the rest of menu items
-*/
-function onMouseLeaveMenuOption() {
-    for (var i = 0; i < menuOpts.length; i++) {
-        menuOpts[i].style.opacity = 1;
-    }
-}
-
-/**
-*   Scroll to the container position
-*/
-function onClickMenuOption() {
-    var id = this.getAttribute('data-goto'),
-        section = document.getElementById(id);
-
-    ToggleMenu.call(navMenu);
-    ScrollPageTo(section);
-}
 
 /**
 *   Return the height of the container to prepare it for the animation

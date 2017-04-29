@@ -1,5 +1,4 @@
 .menu {
-    margin-top: -4em;
     @include transition(all $animation ease-in-out);
     z-index: 90;
 
@@ -42,13 +41,10 @@
         }
     }
  
-    @include tabletLandscape {
+    @include tabletPortrait {
         display: block;
-        margin-top: 0;
-        padding: 1em .5em;
+        padding: 1em;
         text-align: right;
-        background-color: inherit;
-        opacity: 1;
 
         ul {
             display: block;
@@ -60,9 +56,5 @@
             padding: 0;
             border-bottom: none;
         }
-    }
-
-    @include desktop {
-        padding: 2em 1em;
     }
 }

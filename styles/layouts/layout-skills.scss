@@ -1,5 +1,14 @@
 .layout-skills {
+    .section-header, .skills__section {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
     @include tabletPortrait {
+        .section-header {
+            max-width: none;
+        }
+        
         .section-body {
             display: flex;
             justify-content: space-between;
@@ -8,5 +17,28 @@
 }
 
 .skills__section {
-    max-width: 400px;
+    padding-bottom: 1em;
+
+    .skills__section-desc {
+        padding: 1rem 0;
+        font-size: .9em;
+
+        .underline {
+            padding-top: 1rem;
+            text-decoration: underline;
+        }
+    }
+
+    li {
+        position: relative;
+        border: 1px solid transparent;
+        @include transition(all .3s ease);
+
+        &.is-detailed {
+            margin: 0 -5px;
+            padding: 0 5px;
+            background-color: #F8F8F8;
+            border-color: #CCC;
+        }
+    }
 }

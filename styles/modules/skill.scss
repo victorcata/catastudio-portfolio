@@ -64,20 +64,3 @@
         z-index: -1;
     }
 }
-
-.skills__section {
-    padding-bottom: 1em;
-
-    li {
-        position: relative;
-        border: 1px solid transparent;
-        @include transition(all .3s ease);
-
-        &.is-detailed {
-            margin: 0 -5px;
-            padding: 0 5px;
-            background-color: #F8F8F8;
-            border-color: #CCC;
-        }
-    }
-}

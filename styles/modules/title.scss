@@ -1,50 +1,22 @@
 .title {
-    font-size: 3em;
+    font-size: 1.2em;
     text-align: center;
+    color: $grey-darker;
 
-    .title-name, .title-prof, .title-logo {
-        position: fixed;
-        /*right: 0;*/
-        color: $grey-darker;
-        text-align: center;
-        @include transition(top .3s linear, left .3s linear, color .3s linear);
-    }
-
-    .title-name {
-        top: 25%;
-        left: 27%;
+    .title-logo {
+        font-size: 2em;
     }
 
     .title-prof {
-        top: 32%;
-        left: 40%;
+        line-height: 2;
         color: $grey-dark;
-        font-size: .9em;
     }
 
-    .title-logo {
-        top: 40%;
-        left: 50%;
-        font-size: 1.5em;
+    @include tabletPortrait {
+        font-size: 1.6em;
     }
 
-    &.is-fixed {
-        font-size: 1.2em;
-
-        .title-name {
-            top: .8em;
-            left: 4em;
-            right: initial;
-            color: $white;
-            z-index: 100;
-        }
-
-        .title-logo {
-            top: .5em;
-            left: 1em;
-            right: initial;
-            color: $white;
-            z-index: 100;
-        }
+    @include desktop {
+        font-size: 3em;
     }
 }

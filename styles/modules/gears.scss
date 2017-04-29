@@ -1,18 +1,19 @@
 .gears-left, .gears-right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: .2;
+    display: none;
 
     svg {
         width: 60%;
     }
 
-    @include mobileLandscape {
+    @include desktopFullhd {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: .2;
     }
-
     
     /*@include tabletPortrait {
         svg {
@@ -108,27 +109,25 @@
                 @include transform(rotateZ(-360deg) translateZ(0));
             }
         }
-    }*/
-    
+    }
     
     @include tabletLandscape {
         @include transform(none);
-    }
-
+    }*/
+/*
     @include desktop {
-    }
-}
+        .gears-left {
+            svg {
+                position: absolute;
+                left: -30%;
+            }
+        }
 
-.gears-left {
-    svg {
-        position: absolute;
-        left: -30%;
-    }
-}
-
-.gears-right {
-    svg {
-        position: absolute;
-        right: -30%;
-    }
+        .gears-right {
+            svg {
+                position: absolute;
+                right: -30%;
+            }
+        }
+    }*/
 }

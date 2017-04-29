@@ -1,10 +1,14 @@
 .layout-home {
-    /*display: flex;
-    justify-content: center;*/
-    min-height: 650px;
+    display: flex;
+    justify-content: center;
+    min-height: 400px;
     background-color: $white;
 
     .title {
-        /*align-self: center;*/
+        align-self: center;
+    }
+
+    @include desktop {
+        min-height: 650px;
     }
 }

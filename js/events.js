@@ -6,18 +6,10 @@ function _events() {
     // Navigate to top button
     navTop.addEventListener('click', ScrollToTop);
 
-    // Open top menu on mobile
-    navMenu.addEventListener('click', ToggleMenu);
 
     // Send an email
     btnEmail.addEventListener('click', SendEmail);
 
-    // Menu items
-    Array.prototype.forEach.call(menuOpts, function (item) {
-        item.addEventListener('mouseover', onMouseOverMenuOption);
-        item.addEventListener('mouseleave', onMouseLeaveMenuOption);
-        item.addEventListener('click', onClickMenuOption);
-    });
 
     // Create the tiles 3d effect on the education section
     app.tiles();
@@ -33,10 +25,6 @@ function _events() {
     Array.prototype.forEach.call(fields, function (item) {
         item.addEventListener('focus', clearFieldError);
     });
-
-    // Shows the skill if they are visible on the moment to load the page
-    //ShowSkill();
-    app.skills.animeLevel();
 
     // Load the sunburst chart
     //Sunburst(sunburst, SUNBURST_PATH);
@@ -60,8 +48,8 @@ function _events() {
 
     // Elements when resize
     window.onresize = function () {
-        SetTiles();
-        Sunburst(sunburst, SUNBURST_PATH);
+        //SetTiles(); 
+        //Sunburst(sunburst, SUNBURST_PATH);
     }
 
     // Avoid auto scrolling if touchs the page

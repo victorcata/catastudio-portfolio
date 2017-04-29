@@ -1,39 +1,32 @@
-.section {
+.section, .section-fixed {
     position: relative;
+    padding: 1em;
 
-    @include desktop {
-        /*.section-header {
-            padding: 2em 2em 0;
+    .section-header {
+        padding: 1em 0;
+    }
+
+    @include desktop{
+        .section-header {
+            padding-top: 3em;
 
             h1 {
-                font-size: 2.5em;
+                font-weight: 900;
+                color: $grey_darker;
+            }
+
+            p {
+                padding: .5em 0;
             }
         }
 
         .section-body {
-            padding: 2em;
-        }*/
+            padding: 3em 0;
+        }
     }
 }
 
 .section-fixed {
     max-width: 1500px;
     margin: auto;
-}
-
-.section-header {
-    padding-top: 3em;
-
-    h1 {
-        font-weight: 900;
-        color: $grey_darker;
-    }
-
-    p {
-        padding: .5em 0;
-    }
-}
-
-.section-body {
-    padding: 3em 0;
 }
