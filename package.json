@@ -1,7 +1,7 @@
 {
   "name": "catastudio-portfolio",
   "version": "0.1.0",
-  "description": "Victor Catalina Portfolio",
+  "description": "Víctor Catalina Portfolio",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "3.9.1",
