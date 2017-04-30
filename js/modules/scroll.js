@@ -6,6 +6,8 @@
     app.scroll = (function(){
         const SCROLL_INTERVAL = 10,
               SCROLL_MOVE = 100;
+
+        var intervalScrolling = null;
     
         /**
         *   Scroll the page to a determinated position
@@ -63,6 +65,13 @@
                 return document.body.scrollTop;
             }
         }
+
+        /**
+         * Navigates to top button
+         */
+        (function () {
+            document.getElementById("nav-top").addEventListener('click', _scrollToTop);
+        })();
 
         return {
             to: _scrollPageTo,

@@ -37,14 +37,14 @@ gulp.task("pug", function() {
  * Scripts
  */
 gulp.task("scripts", function() {
-    return gulp.src(["./js/global.js", 
-                     "./js/scroll.js",
-                     "./js/menu.js",
-                     "./js/skills.js"])
-                     //"./js/sunburst.js",
-                     //"./js/tiles.js",
-                     //"./js/core.js", 
-                     //"./js/events.js"])
+    return gulp.src(["./js/modules/global.js", 
+                     "./js/modules/scroll.js",
+                     "./js/modules/header.js",
+                     "./js/modules/menu.js",
+                     "./js/modules/skills.js",
+                     "./js/modules/social.js",
+                     "./js/modules/parallax.js",
+                     "./js/modules/email.js"])
                .pipe(concat("app.js"))
                .pipe(gulp.dest("./js"));
 });

@@ -1,0 +1,39 @@
+﻿@-webkit-keyframes rotate {
+    from {
+        @include transform(rotateZ(0deg) translateZ(0));
+    }
+
+    to {
+        @include transform(rotateZ(360deg) translateZ(0));
+    }
+}
+
+@-webkit-keyframes rotateInv {
+    from {
+        @include transform(rotateZ(0deg) translateZ(0));
+    }
+
+    to {
+        @include transform(rotateZ(-360deg) translateZ(0));
+    }
+}
+
+@keyframes rotate {
+    from {
+        @include transform(rotateZ(0deg) translateZ(0));
+    }
+
+    to {
+        @include transform(rotateZ(360deg) translateZ(0));
+    }
+}
+
+@keyframes rotateInv {
+    from {
+        @include transform(rotateZ(0deg) translateZ(0));
+    }
+
+    to {
+        @include transform(rotateZ(-360deg) translateZ(0));
+    }
+}

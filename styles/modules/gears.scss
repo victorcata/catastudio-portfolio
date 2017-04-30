@@ -5,7 +5,7 @@
         width: 60%;
     }
 
-    @include desktopFullhd {
+    @include desktop {
         display: block;
         position: absolute;
         top: 0;
@@ -13,9 +13,7 @@
         right: 0;
         bottom: 0;
         opacity: .2;
-    }
-    
-    /*@include tabletPortrait {
+
         svg {
             #cinema4d_x5F_gear, #aftereffects_x5F_border, #illustrator_x5F_gear, #photoshop_x5F_borde, #html_x5F_borde, #css_x5F_borde, #javascript_x5F_borde, #visualstudio_x5F_borde, #mcsd_border, #mcsd_center, #tfs_x5F_gear, #net_x5F_borde, #sql_x5F_borde {
                 @include transform-origin(50% 50%);
@@ -70,64 +68,26 @@
             }
         }
 
-        @-webkit-keyframes rotate {
-            from {
-                @include transform(rotateZ(0deg) translateZ(0));
-            }
-
-            to {
-                @include transform(rotateZ(360deg) translateZ(0));
-            }
-        }
-
-        @-webkit-keyframes rotateInv {
-            from {
-                @include transform(rotateZ(0deg) translateZ(0));
-            }
-
-            to {
-                @include transform(rotateZ(-360deg) translateZ(0));
-            }
-        }
-
-        @keyframes rotate {
-            from {
-                @include transform(rotateZ(0deg) translateZ(0));
-            }
-
-            to {
-                @include transform(rotateZ(360deg) translateZ(0));
-            }
-        }
-
-        @keyframes rotateInv {
-            from {
-                @include transform(rotateZ(0deg) translateZ(0));
-            }
-
-            to {
-                @include transform(rotateZ(-360deg) translateZ(0));
-            }
-        }
-    }
-    
-    @include tabletLandscape {
-        @include transform(none);
-    }*/
-/*
-    @include desktop {
-        .gears-left {
+        &.gears-left {
             svg {
                 position: absolute;
                 left: -30%;
             }
         }
 
-        .gears-right {
+        &.gears-right {
             svg {
                 position: absolute;
                 right: -30%;
             }
         }
+    }
+    /*@include tabletPortrait {
+        
+
+    }
+    
+    @include tabletLandscape {
+        @include transform(none);
     }*/
 }

@@ -1,21 +1,37 @@
 .layout-work {
     .section-header {
-        width: 60%;
         margin: 0 auto;
         text-align: center;
     }
 
-    // TODO: PASAR A UN GENERICO
-    .section-body {
-        max-width: 1200px;
-        margin: auto;
-    }
-}
+    @include tabletPortrait {
+        .section-header {
+            width: 60%;
+        }
 
-.work__section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    height: 750px;
+        .work__section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .work {
+            margin: 1em;
+        }
+    }
+
+    @include desktop {
+        .section-body {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .work__section {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: space-between;
+            height: 750px;
+        }
+    }
 }

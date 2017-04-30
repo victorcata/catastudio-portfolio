@@ -1,15 +1,16 @@
 // Dependencies
-@import "./dependencies/_variables.scss";
-@import "./dependencies/_colors.scss";
-@import "./dependencies/_mixins.scss";
+@import "./dependencies/variables.scss";
+@import "./dependencies/colors.scss";
+@import "./dependencies/mixins.scss";
+@import "./dependencies/animations.scss";
 
 // Base
-@import "base/_reset.scss";
-@import "base/_base.scss";
-@import "base/_fonts.scss";
-@import "base/_icons.scss";
-@import "base/_images.scss";
-@import "base/_sprites.scss";
+@import "base/reset.scss";
+@import "base/base.scss";
+@import "base/fonts.scss";
+@import "base/icons.scss";
+@import "base/images.scss";
+@import "base/sprites.scss";
 @import "base/grid.scss";
 
 // Layouts

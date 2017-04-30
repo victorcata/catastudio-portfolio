@@ -19,31 +19,67 @@
 
     &:before {
         background: url("../assets/images/cert-mcsd.png") no-repeat;
-        background-size: 300px;
-        background-position: -80px -100px;
+        background-size: 200px;
+        background-position: 105% 40%;
         transform-origin: center;
     }
 
     &:after {
         background: url("../assets/images/cert-mcsa.png") no-repeat;
-        background-size: 300px;
-        background-position: 500px 0px;
+        background-size: 200px;
+        background-position: 50% 0;
         @include transform(rotateZ(20deg));
     }
 
     .section-body:before {
         background: url("../assets/images/cert-idf.jpg") no-repeat;
-        background-position: 125% -140%;
+        background-size: 500px;
+        background-position: 150% 130%;
     }
-}
 
-.certs__section {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 90%;
-    margin: auto;
+    @include tabletPortrait {
+        .certs__section {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 90%;
+            margin: auto;
+        }
 
-    .cert {
-        flex: 0 33.33%;
+        .cert {
+            flex: 0 50%;
+        }
+
+        &:before {
+            background-position: 95% 5%;
+        }
+
+        &:after {
+            background-position: 0 20%;
+        }
+
+        .section-body:before {
+            background-position: 110% 250%;
+        }
+    }
+
+    @include desktop {
+        .cert {
+            flex: 0 33.3%;
+        }
+
+        &:before {
+            background-size: 300px;
+            background-position: -80px -100px;
+        }
+
+        &:after {
+            background-size: 300px;
+            background-position: 20% 0;
+        }
+
+        .section-body:before {
+        background-size: 600px;
+            background-position: 110% 150%;
+        }
     }
 }

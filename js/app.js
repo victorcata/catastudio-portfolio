@@ -1,6 +1,6 @@
 var app = app || {};
 
-(function(global) {
+(function (global) {
     "use strict";
 
     var cbOnScroll = [];
@@ -9,7 +9,7 @@ var app = app || {};
     *   Gets the scroll top position compatibility with IE
     *   @return {int} Scroll Top value
     */
-    global.ScrollTop = function() {
+    global.ScrollTop = function () {
         return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     }
 
@@ -17,17 +17,19 @@ var app = app || {};
      * Add event to scroll
      * @param {function} callback Function to execute when the user scrolls
      */
-    global.addEventToScroll = function(callback) {
-        if (callback !== undefined && typeof callback === "function") {
-            cbOnScroll.push(callback);
+    global.addEventToScroll = function (...callback) {
+        for(var cb of callback) {
+            if (cb !== undefined && typeof cb === "function") {
+                cbOnScroll.push(cb);
+            }
         }
     }
 
     /**
      * OnScroll event
      */
-    global.onscroll = function() {
-        for(let i = 0; i < cbOnScroll.length; i++) {
+    global.onscroll = function () {
+        for (let i = 0; i < cbOnScroll.length; i++) {
             cbOnScroll[i]();
         }
     }
@@ -72,6 +74,8 @@ var app = app || {};
     app.scroll = (function(){
         const SCROLL_INTERVAL = 10,
               SCROLL_MOVE = 100;
+
+        var intervalScrolling = null;
     
         /**
         *   Scroll the page to a determinated position
@@ -130,11 +134,37 @@ var app = app || {};
             }
         }
 
+        /**
+         * Navigates to top button
+         */
+        (function () {
+            document.getElementById("nav-top").addEventListener('click', _scrollToTop);
+        })();
+
         return {
             to: _scrollPageTo,
             top: _scrollToTop
         }
     })();
+})(window);
+(function (global) {
+    /**
+    *   Controls the visibility of the header
+    */
+    var _controlsHeaderVisibility = function() {
+        let header = document.getElementsByClassName("layout-header")[0],
+            title = document.getElementsByClassName("title")[0];
+
+        if (ScrollTop() > 0) {
+            header.classList.add('is-fixed');
+            title.classList.add("is-fixed");
+        } else {
+            header.classList.remove('is-fixed');
+            title.classList.remove("is-fixed");
+        }
+    }
+
+    global.addEventToScroll(_controlsHeaderVisibility);
 })(window);
 (function(global){
     "use strict";
@@ -226,9 +256,11 @@ var app = app || {};
     var app = app || {};
 
     app.skills = (function(){
-        const STYLE_ANIMATION = "width 1s .250s ease-out";
+        const STYLE_ANIMATION = "width 1s .250s ease-out",
+            HOVER_INTENT_DELAY = 350;
 
-        var skills = document.getElementsByClassName('skill');
+        var skills = document.getElementsByClassName('skill'),
+            timeoutIn = null;
         
         /**
         *   Shows the level of each skill with an animation
@@ -258,8 +290,6 @@ var app = app || {};
                 var details = self.querySelector('.skill-extra');
                 if (details === null) return;
 
-                _highLightSunburst(self.querySelector('.skill').getAttribute('data-skill'));
-
                 var logo = self.getElementsByTagName('img')[0];
                 if (logo !== undefined) details.appendChild(logo.cloneNode(true));
 
@@ -269,7 +299,7 @@ var app = app || {};
                         self.classList.add('is-detailed');
                     }, 50)
                 }
-                getDetailsContainerHeight(details, setHeight);
+                _getDetailsContainerHeight(details, setHeight);
             }, HOVER_INTENT_DELAY);
         }
 
@@ -292,19 +322,43 @@ var app = app || {};
 
             this.removeAttribute('class');
             details.removeAttribute('style');
+        }
 
-            _removeHighLightSunburst(this.querySelector('.skill').getAttribute('data-skill'));
+
+        /**
+        *   Return the height of the container to prepare it for the animation
+        *   @param {object} container: Skill details container
+        *   @param {function} callback: Function to execute after calculate the height 
+        *   @return {number} Value of the details container height
+        */
+        var _getDetailsContainerHeight = function (container, callback) {
+            container.style.height = 'auto';
+            var height = container.offsetHeight;
+            container.style.height = 0;
+            if (callback !== undefined && callback !== null && typeof callback === 'function') {
+                callback(height);
+            }
+            return height;
         }
 
         /**
          * Initialize in case the skills are visible when the page is refreshed
          */
-        function _init(){
+        function _init() {
             _animeLevel();
             global.addEventToScroll(_animeLevel);
-        }
-
+        };
         _init();
+
+
+
+        // Skill elements
+        Array.prototype.forEach.call(skills, function (item) {
+            var container = item.parentElement;
+            container.addEventListener('mouseenter', _showDetails);
+            container.addEventListener('mouseleave', _hideDetails);
+        });
+
 
         return {
             animeLevel: _animeLevel,
@@ -315,3 +369,183 @@ var app = app || {};
         }
     })();
 })(window);
+
+(function (global) {
+    "use strict";
+
+    var app = app || {};
+
+    app.social = (function () {
+        const MARGIN_CHANGE = 50;
+
+        var _links = document.getElementById('rrss'),
+            navTop = document.getElementById('nav-top');
+
+        /**
+        *   Controls the visibility of the scroll to top button
+        */
+        var _ScrollTopVisibility = function() {
+            if (navTop == undefined) return;
+
+            (ScrollTop() == 0) ? navTop.classList.add('is-hidden') : navTop.classList.remove('is-hidden');
+        }
+
+        /**
+         * Checks if the social icons are on top of the footer
+         * @return {bool} True is the icons are on top of the footer
+         */
+        var _isOnFooter = function () {
+            var fullHeight = global.ScrollTop() + document.body.offsetHeight;
+
+            return global.ScrollTop() >= 0 && fullHeight + MARGIN_CHANGE < document.body.scrollHeight;
+        }
+
+        /**
+        *   Controls the visibility of the social media buttons
+        */
+        var _SocialMediaVisibility = function() {
+            (_isOnFooter()) ? _links.classList.add('is-floating') : _links.classList.remove('is-floating');
+        }
+
+        global.addEventToScroll(_SocialMediaVisibility, _ScrollTopVisibility);
+    })();
+})(window);
+(function (global) {
+    const SPEED_PARALLAX = 100;
+
+    var _itemsParallax = document.querySelectorAll('[data-parallax-y]')
+
+
+    /**
+    *   Controls the parallax movement of the layers
+    */
+    var _parallax = function() {
+        let scrollTop = global.ScrollTop();
+
+        Array.prototype.forEach.call(_itemsParallax, function (item) {
+            // Parameters
+            var motionY = item.getAttribute('data-parallax-y') * SPEED_PARALLAX,
+                motionX = item.getAttribute('data-parallax-x') * SPEED_PARALLAX;
+
+            // Movement
+            var x = (scrollTop / SPEED_PARALLAX * motionX).toFixed(2) + 'px';
+            var y = (scrollTop / SPEED_PARALLAX * motionY).toFixed(2) + 'px';
+
+            // Transformation
+            item.style.transform = 'translate3d(' + x + ', ' + y + ', ' + 0 + ')';
+        });
+    };
+
+    global.addEventToScroll(_parallax);
+})(window);
+(function () {
+    "use strict";
+
+    const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    /**
+    *   Validate the fields of the form
+    *   @return {boolean} True if every fields is filled right
+    */
+    var _validateFields = function() {
+        var name = document.getElementById('name'),
+            email = document.getElementById('email'),
+            comments = document.getElementById('comments'),
+            emailRegex = EMAIL_REGEX,
+            isValid = true;
+
+        if (name.value === '') {
+            name.classList.add('is-error');
+            isValid = false;
+        }
+        if (email.value === '' || !emailRegex.test(email.value)) {
+            email.classList.add('is-error');
+            isValid = false;
+        }
+        if (comments.value === '') {
+            comments.classList.add('is-error');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    /**
+     * Clears the error styles
+     */
+    var _clearFieldError = function() {
+        this.classList.remove('is-error');
+    }
+
+    /**
+    *   Append a message with the result of sending the email
+    *   @param {boolean} success: True if the message was send it
+    */
+    var _responseMessage = function(success) {
+        var container = document.createElement('div'),
+            msg = document.createElement('p');
+
+        container.classList.add('contact-result');
+        success ? container.classList.add('is-success') : container.classList.add('is-error');
+        success ? msg.innerText = SENDING_SUCCESS : msg.innerText = SENDING_ERROR;
+
+        container.appendChild(msg);
+
+
+        container.style.height = 0;
+        document.getElementsByClassName('contact-form')[0].appendChild(container);
+        setTimeout(function () {
+            container.style.height = '3em';
+        }, 100);
+
+        setTimeout(function () {
+            container.style.height = 0;
+            setTimeout(function () {
+                container.parentElement.removeChild(container);
+            }, 1000);
+        }, 5000);
+    }
+
+
+    /**
+    *   Send an email
+    */
+    var _sendEmail = function (evt) {
+        evt.preventDefault();
+
+        if (!_validateFields()) return;
+
+        var data = {
+            'name': document.getElementById('name').value,
+            'email': document.getElementById('email').value,
+            'comments': document.getElementById('comments').value
+        };
+        var params = 'name=' + data.name + '&email=' + data.email + '&comments=' + data.comments;
+
+        var http = new XMLHttpRequest();
+        http.open("POST", '/Content/data/email.php?' + params, true);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                _responseMessage(http.responseText.trim() == "1");
+            }
+        }
+        http.send();
+    }
+
+    /**
+     * Initializes events
+     */
+    function _events() {
+        document.getElementById("send-email").addEventListener('click', _sendEmail);
+
+        // Focus on fields
+        let fields = document.querySelectorAll('.contact-form input, .contact-form textarea');
+        Array.prototype.forEach.call(fields, function (item) {
+            item.addEventListener('focus', _clearFieldError);
+        });
+    };
+    _events();
+    
+
+})();

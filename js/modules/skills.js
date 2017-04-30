@@ -4,9 +4,11 @@
     var app = app || {};
 
     app.skills = (function(){
-        const STYLE_ANIMATION = "width 1s .250s ease-out";
+        const STYLE_ANIMATION = "width 1s .250s ease-out",
+            HOVER_INTENT_DELAY = 350;
 
-        var skills = document.getElementsByClassName('skill');
+        var skills = document.getElementsByClassName('skill'),
+            timeoutIn = null;
         
         /**
         *   Shows the level of each skill with an animation
@@ -36,8 +38,6 @@
                 var details = self.querySelector('.skill-extra');
                 if (details === null) return;
 
-                _highLightSunburst(self.querySelector('.skill').getAttribute('data-skill'));
-
                 var logo = self.getElementsByTagName('img')[0];
                 if (logo !== undefined) details.appendChild(logo.cloneNode(true));
 
@@ -47,7 +47,7 @@
                         self.classList.add('is-detailed');
                     }, 50)
                 }
-                getDetailsContainerHeight(details, setHeight);
+                _getDetailsContainerHeight(details, setHeight);
             }, HOVER_INTENT_DELAY);
         }
 
@@ -70,19 +70,43 @@
 
             this.removeAttribute('class');
             details.removeAttribute('style');
+        }
 
-            _removeHighLightSunburst(this.querySelector('.skill').getAttribute('data-skill'));
+
+        /**
+        *   Return the height of the container to prepare it for the animation
+        *   @param {object} container: Skill details container
+        *   @param {function} callback: Function to execute after calculate the height 
+        *   @return {number} Value of the details container height
+        */
+        var _getDetailsContainerHeight = function (container, callback) {
+            container.style.height = 'auto';
+            var height = container.offsetHeight;
+            container.style.height = 0;
+            if (callback !== undefined && callback !== null && typeof callback === 'function') {
+                callback(height);
+            }
+            return height;
         }
 
         /**
          * Initialize in case the skills are visible when the page is refreshed
          */
-        function _init(){
+        function _init() {
             _animeLevel();
             global.addEventToScroll(_animeLevel);
-        }
-
+        };
         _init();
+
+
+
+        // Skill elements
+        Array.prototype.forEach.call(skills, function (item) {
+            var container = item.parentElement;
+            container.addEventListener('mouseenter', _showDetails);
+            container.addEventListener('mouseleave', _hideDetails);
+        });
+
 
         return {
             animeLevel: _animeLevel,

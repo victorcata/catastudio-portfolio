@@ -1,6 +1,6 @@
 var app = app || {};
 
-(function(global) {
+(function (global) {
     "use strict";
 
     var cbOnScroll = [];
@@ -9,7 +9,7 @@ var app = app || {};
     *   Gets the scroll top position compatibility with IE
     *   @return {int} Scroll Top value
     */
-    global.ScrollTop = function() {
+    global.ScrollTop = function () {
         return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     }
 
@@ -17,17 +17,19 @@ var app = app || {};
      * Add event to scroll
      * @param {function} callback Function to execute when the user scrolls
      */
-    global.addEventToScroll = function(callback) {
-        if (callback !== undefined && typeof callback === "function") {
-            cbOnScroll.push(callback);
+    global.addEventToScroll = function (...callback) {
+        for(var cb of callback) {
+            if (cb !== undefined && typeof cb === "function") {
+                cbOnScroll.push(cb);
+            }
         }
     }
 
     /**
      * OnScroll event
      */
-    global.onscroll = function() {
-        for(let i = 0; i < cbOnScroll.length; i++) {
+    global.onscroll = function () {
+        for (let i = 0; i < cbOnScroll.length; i++) {
             cbOnScroll[i]();
         }
     }

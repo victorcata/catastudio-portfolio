@@ -173,3 +173,37 @@ var Sunburst = function (element, path) {
         sunBurst('#' + element.id).data(data).render();
     });
 }
+
+///**
+//*   Highlight the sunburst section of the skill
+//*/
+//function _highLightSunburst(skill) {
+//    var path = document.querySelector('path[data-skill=' + skill + ']');
+//    if (path === null) return;
+
+//    var chain = path.getAttribute('data-skill-chain').split('-');
+
+//    if (path.classList === undefined) return;
+
+//    path.classList.add('is-highlight');
+//    for (var i = 1; i < chain.length - 1; i++) {
+//        sunburst.querySelector('path[data-skill=' + chain[i] + ']').classList.add('is-highlight');
+//    }
+
+//}
+
+///**
+//*   Remove the highlight in the sunburst section of the skill
+//*/
+//function _removeHighLightSunburst(skill) {
+//    var path = document.querySelector('path[data-skill=' + skill + ']');
+//    if (path === null) return;
+//    var chain = path.getAttribute('data-skill-chain').split('-');
+
+//    if (path.classList == undefined) return;
+
+//    path.classList.remove('is-highlight');
+//    for (var i = 1; i < chain.length - 1; i++) {
+//        sunburst.querySelector('path[data-skill=' + chain[i] + ']').classList.remove('is-highlight');
+//    }
+//}

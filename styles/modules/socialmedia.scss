@@ -18,7 +18,7 @@
         margin-left: 0;
     }
 
-    @include desktop {
+    @include tabletLandscape {
         position: fixed;
         bottom: 1em;
         right: 1em;
@@ -27,7 +27,7 @@
             padding-bottom: 0;
 
             [class^="icon"] {
-                font-size: 3em;
+                font-size: 2.5em;
                 margin-left: .8rem;
             }
 
