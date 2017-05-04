@@ -98,15 +98,12 @@
         };
         _init();
 
-
-
         // Skill elements
-        Array.prototype.forEach.call(skills, function (item) {
-            var container = item.parentElement;
-            container.addEventListener('mouseenter', _showDetails);
-            container.addEventListener('mouseleave', _hideDetails);
-        });
-
+        // Array.prototype.forEach.call(skills, function (item) {
+        //     var container = item.parentElement;
+        //     container.addEventListener('mouseenter', _showDetails);
+        //     container.addEventListener('mouseleave', _hideDetails);
+        // });
 
         return {
             animeLevel: _animeLevel,

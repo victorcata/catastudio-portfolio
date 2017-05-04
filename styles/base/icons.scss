@@ -10,22 +10,41 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-3d:before {
+  content: "\e900";
+}
+
+.icon-analysis:before {
+  content: "\e901";
+}
+.icon-instructor:before {
+  content: "\e902";
+}
+.icon-mediaset:before {
+  content: "\e903";
+}
+.icon-mediamarkt:before {
+  content: "\e904";
+}
+.icon-fed:before {
+  content: "\e905";
+}
+.icon-rtc:before {
+  content: "\e906";
+}
 .icon-catastudio:before {
-    content: "\e900";
+  content: "\e907";
 }
-
 .icon-github:before {
-    content: "\e901";
+  content: "\e908";
 }
-
 .icon-linkedin:before {
-    content: "\e902";
+  content: "\e909";
 }
-
 .icon-twitter:before {
-    content: "\e903";
+  content: "\e90a";
+}
+.icon-caret-top:before {
+  content: "\e90b";
 }
 
-.icon-caret-top:before {
-    content: "\e904";
-}

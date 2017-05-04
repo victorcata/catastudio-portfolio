@@ -130,7 +130,7 @@
 
     &.is-webgl {
         background-position-x: -120px;
-        background-position-y: -120px;
+        background-position-y: -122px;
     }
 
     &.is-d3 {
@@ -155,7 +155,7 @@
 
     &.is-xamarin {
         background-position-x: -121px;
-        background-position-y: -150px;
+        background-position-y: -149px;
     }
 
     &.is-sql {
@@ -171,6 +171,26 @@
     &.is-azure {
         background-position-x: -60px;
         background-position-y: -180px;
+    }
+
+    &.is-pug {
+        background-position-x: -90px;
+        background-position-y: -180px;
+    }
+
+    &.is-webpack {
+        background-position-x: -121px;
+        background-position-y: -179px;
+    }
+
+    &.is-gulp {
+        background-position-x: 0px;
+        background-position-y: -210px;
+    }
+
+    &.is-git {
+        background-position-x: -30px;
+        background-position-y: -210px;
     }
 }
 

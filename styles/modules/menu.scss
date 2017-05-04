@@ -28,7 +28,7 @@
     .border {
         display: block;
         width: 0%;
-        height: 1px;
+        height: 2px;
         margin-left: 50%;
         background-color: $grey3;
         @include transition(width .15s ease-in-out, margin-left .15s ease-in-out, opacity 1s ease-in-out);

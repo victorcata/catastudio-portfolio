@@ -1,10 +1,12 @@
-<a class="work">
-    <div class="work-logo">
-        <span class="icon-catastudio"></span>
+if work.title === ""
+    <div class="work work-empty">
+        <p>#{work.description}</p>
     </div>
-    <h2>#{work.title}</h2>
-    <p class="work-description">UX design and Front-End development of the e-commerce</p>
-</a>
-//-a.work(href=work.path, target="_self")
-  //-div.work-thumb(class=work.class)
-  //-p.work-title #{work.title}
+else
+    <a class="work" href="#{work.path}">
+        <div class="work-logo">
+            <span class="#{work.logo}"></span>
+        </div>
+        <h2>#{work.title}</h2>
+        <p class="work-description">#{work.description}</p>
+    </a>

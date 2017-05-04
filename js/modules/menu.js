@@ -64,14 +64,14 @@
     *   Scroll to the container position
     */
     function onClickMenuOption(evt) {
+        evt.stopImmediatePropagation();
+
         let el = evt.target.parentElement,
             link = el.getAttribute('data-goto'),
-            article = document.querySelector(link);
+            article = document.querySelector(`[data-menu-target=${link}]`);
 
         ToggleMenu.call(_navMenu);
         app.scroll.to(article);
-
-        evt.stopImmediatePropagation();
     }
 
     /**

@@ -14,22 +14,37 @@
     }
 
     h2 {
-        padding: .5em 0;
+        padding: .5em;
     }
 
     .work-description {
         font-size: .9em;
     }
 
-    &:hover {
+    &:not(.work-empty):hover {
         background-color: $grey-darker;
         color: $white;
     }
 
     @include tabletPortrait {
         margin: 0;
-        padding: 2em;
+        padding: 2em 1em;
         width: 250px;
         height: 350px;
+    }
+}
+
+.work-empty {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    cursor: default;
+
+    p {
+        align-self: center;
+        font-size: 1.5em;
+        font-weight: 500;
+        font-family: "Exo", sans-serif;
+        text-transform: uppercase;
     }
 }

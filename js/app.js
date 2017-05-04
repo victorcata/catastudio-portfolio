@@ -77,6 +77,12 @@ var app = app || {};
 
         var intervalScrolling = null;
     
+        function _maxScroll() {
+            var body = document.body,
+                html = document.documentElement;
+
+            return Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - document.body.offsetHeight;
+        }
         /**
         *   Scroll the page to a determinated position
         *   @param {object} to: Element where to scroll
@@ -84,31 +90,34 @@ var app = app || {};
         function _scrollPageTo(to) {
             if (to === undefined || to === null) return;
 
-            let top = to.offsetTop;
+            let top = to.offsetTop,
+                max = _maxScroll();
+
+            if (top > max) top = max;
 
             intervalScrolling = setInterval(function() {
                 if (isNaN(to)) {
                     // Scroll to an element
-                    if (top < ScrollTop()) {
-                        let value = ScrollTop() - SCROLL_MOVE;
+                    if (top < global.ScrollTop()) {
+                        let value = global.ScrollTop() - SCROLL_MOVE;
                         _setScrollTop(value);
-                        if (ScrollTop() <= top) {
+                        if (global.ScrollTop() <= top) {
                             _setScrollTop(top);
                             clearInterval(intervalScrolling);
                         }
                     } else {
-                        let value = ScrollTop() + SCROLL_MOVE;
+                        let value = global.ScrollTop() + SCROLL_MOVE;
                         _setScrollTop(value);
-                        if (ScrollTop() >= top) {
+                        if (global.ScrollTop() >= top) {
                             _setScrollTop(top);
                             clearInterval(intervalScrolling);
                         }
                     }
                 } else {
                     // Scroll to the top
-                    let value = ScrollTop() - SCROLL_MOVE;
+                    let value = global.ScrollTop() - SCROLL_MOVE;
                     _setScrollTop(value);
-                    if (ScrollTop() <= 0) clearInterval(intervalScrolling);
+                    if (global.ScrollTop() <= 0) clearInterval(intervalScrolling);
                 }
             }, SCROLL_INTERVAL);
         }
@@ -232,14 +241,14 @@ var app = app || {};
     *   Scroll to the container position
     */
     function onClickMenuOption(evt) {
+        evt.stopImmediatePropagation();
+
         let el = evt.target.parentElement,
             link = el.getAttribute('data-goto'),
-            article = document.querySelector(link);
+            article = document.querySelector(`[data-menu-target=${link}]`);
 
         ToggleMenu.call(_navMenu);
         app.scroll.to(article);
-
-        evt.stopImmediatePropagation();
     }
 
     /**
@@ -350,15 +359,12 @@ var app = app || {};
         };
         _init();
 
-
-
         // Skill elements
-        Array.prototype.forEach.call(skills, function (item) {
-            var container = item.parentElement;
-            container.addEventListener('mouseenter', _showDetails);
-            container.addEventListener('mouseleave', _hideDetails);
-        });
-
+        // Array.prototype.forEach.call(skills, function (item) {
+        //     var container = item.parentElement;
+        //     container.addEventListener('mouseenter', _showDetails);
+        //     container.addEventListener('mouseleave', _hideDetails);
+        // });
 
         return {
             animeLevel: _animeLevel,
