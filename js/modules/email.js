@@ -1,13 +1,19 @@
 ﻿(function () {
     "use strict";
 
-    const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+          EMAILJS_SERVICE_ID = "default_service",
+          EMAILJS_TEMPLATE_ID = "template_LYoOpR50",
+          SENDING_SUCCESS = "Message sended",
+          SENDING_ERROR = "Sorry, there was a problem. Try contacting by Linkedin, Thanks!"
+
+    emailjs.init("user_IkbBM8PiQ7SFBY6gIdoZA");
 
     /**
     *   Validate the fields of the form
     *   @return {boolean} True if every fields is filled right
     */
-    var _validateFields = function() {
+    var _validateFields = function () {
         var name = document.getElementById('name'),
             email = document.getElementById('email'),
             comments = document.getElementById('comments'),
@@ -33,7 +39,7 @@
     /**
      * Clears the error styles
      */
-    var _clearFieldError = function() {
+    var _clearFieldError = function () {
         this.classList.remove('is-error');
     }
 
@@ -41,7 +47,7 @@
     *   Append a message with the result of sending the email
     *   @param {boolean} success: True if the message was send it
     */
-    var _responseMessage = function(success) {
+    var _responseMessage = function (success) {
         var container = document.createElement('div'),
             msg = document.createElement('p');
 
@@ -59,38 +65,48 @@
         }, 100);
 
         setTimeout(function () {
+            _enableButton();
             container.style.height = 0;
             setTimeout(function () {
                 container.parentElement.removeChild(container);
             }, 1000);
-        }, 5000);
+        }, 1000);
     }
 
+    var _disableButton = function () {
+        var btn = document.getElementById("send-email");
+
+        btn.disabled = true;
+        btn.innerText = "SENDING...";
+    }
+
+    var _enableButton = function () {
+        var btn = document.getElementById("send-email");
+
+        btn.removeAttribute("disabled");
+        btn.innerText = "SEND COMMENTS";
+    }
 
     /**
     *   Send an email
     */
     var _sendEmail = function (evt) {
         evt.preventDefault();
+        _disableButton();
 
         if (!_validateFields()) return;
 
-        var data = {
-            'name': document.getElementById('name').value,
-            'email': document.getElementById('email').value,
-            'comments': document.getElementById('comments').value
+        var params = {
+            "from_name": contactForm.name.value,
+            "message_html": `Email: ${contactForm.email.value} Message: ${contactForm.comments.value}`
         };
-        var params = 'name=' + data.name + '&email=' + data.email + '&comments=' + data.comments;
 
-        var http = new XMLHttpRequest();
-        http.open("POST", '/Content/data/email.php?' + params, true);
-        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        http.onreadystatechange = function () {
-            if (http.readyState == 4 && http.status == 200) {
-                _responseMessage(http.responseText.trim() == "1");
-            }
-        }
-        http.send();
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
+                .then(function (response) {
+                    _responseMessage(true);
+                }, function (err) {
+                    _responseMessage(false);
+                });
     }
 
     /**
@@ -106,6 +122,6 @@
         });
     };
     _events();
-    
+
 
 })();
