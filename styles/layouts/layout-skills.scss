@@ -1,6 +1,7 @@
 .layout-skills {
     .section-header, .skills__section {
         max-width: 400px;
+        min-width: 33.33%;
         margin: 0 auto;
     }
 
@@ -13,11 +14,20 @@
             display: flex;
             justify-content: space-between;
         }
+        .skills__section {
+            padding-right: 1em;
+        }
     }
 }
 
 .skills__section {
     padding-bottom: 1em;
+
+    header h2 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     .skills__section-desc {
         padding: 1rem 0;

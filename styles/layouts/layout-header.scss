@@ -3,34 +3,6 @@
     text-align: right;
     z-index: 90;
 
-    &.is-fixed {
-        position: fixed;
-        width: 100%;
-        background-color: rgba(25, 23, 23, 0.7);
-
-        .logo-catastudio {   
-            top: .15em;
-            opacity: 1;
-        }
-
-        .logo-title {
-            color: $white;
-        }
-
-        .icon-catastudio {
-            font-size: .8em;
-            color: $white;
-        }
-
-        .menu-opt {
-            color: $white;
-        }
-
-        .border {
-            background-color: $white;
-        }
-    }
-
     &.is-menuopen {
         background: $grey3;
         box-shadow: 0 0 5px $black;
@@ -61,6 +33,36 @@
             top: 18px;
             width: 0%;
             left: 50%;
+        }
+    }
+
+    @include tabletPortrait {
+        &.is-fixed {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(25, 23, 23, 0.7);
+
+            .logo-catastudio {   
+                top: .15em;
+                opacity: 1;
+            }
+
+            .logo-title {
+                color: $white;
+            }
+
+            .icon-catastudio {
+                font-size: .8em;
+                color: $white;
+            }
+
+            .menu-opt {
+                color: $white;
+            }
+
+            .border {
+                background-color: $white;
+            }
         }
     }
 
