@@ -1,7 +1,8 @@
 .layout-header {
-    background-color: $white;
     text-align: right;
+    background-color: $white;
     z-index: 90;
+    @include transition(background-color $animation ease);
 
     &.is-menuopen {
         background: $grey3;

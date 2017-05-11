@@ -78,7 +78,6 @@
 //      transition
 //-------------------------------------------
 @mixin transition($params...){
-    @include transform(translateZ(0));
     -webkit-transition: $params;
             transition: $params;
 }

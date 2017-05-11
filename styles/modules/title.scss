@@ -1,15 +1,19 @@
 .title {
+    position: relative;
     font-size: 1.2em;
     text-align: center;
     color: $grey-darker;
+    z-index: 10;
 
     .title-logo {
         font-size: 2em;
     }
 
     .title-prof {
-        font-size: .8em;
+        font-size: .6em;
         line-height: 1.4;
+        font-weight: 300;
+        text-transform: uppercase;
         color: $grey-dark;
     }
 
