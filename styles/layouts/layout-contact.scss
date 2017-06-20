@@ -1,54 +1,50 @@
 .layout-contact {
     padding-bottom: 50px;
-
     .contact {
         max-width: 500px;
         margin: 0 auto;
     }
-
     @include tabletPortrait {
         margin-top: 100px;
-
-        .section-header, .section-body {
+        .section-header,
+        .section-body {
             position: relative;
             left: 50%;
             width: 50%;
             max-width: 500px;
         }
-
         &:after {
             content: "";
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100%;
             right: 0;
             bottom: 0;
             background: url(../assets/images/img-shadow.png) no-repeat;
-            background-position-x: 200%;
             opacity: .2;
             z-index: -1;
         }
     }
-
     @include tabletLandscape {
         &:after {
-            background-size: 90%;
-            background-position-x: -500%;
+            left: -60%;
         }
     }
-
     @include desktop {
-        .section-header, .section-body {
+        .section-header,
+        .section-body {
             left: 60%;
         }
-
         .section-body {
             padding: 1em 0 5em;
         }
-
         &:after {
-            background-size: initial;
-            background-position-x: -25%;
+            left: -40%;
+        }
+    }
+    @media screen and (min-width: 1400px) {
+        &:after {
+            left: -20%;
         }
     }
 }
