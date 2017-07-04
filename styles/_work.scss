@@ -1,6 +1,9 @@
 .work-body {
     padding-top: 5em;
     background-color: $white;
+    &.work-secondary {
+        padding-top: 0;
+    }
 }
 
 .work-desc {
@@ -8,42 +11,59 @@
     display: -ms-flexbox;
     padding: 5em 0;
     ul li {
-        display: inline-block;
+        float: left;
     }
-    .work-details {
-        padding: .5em 0;
-        h2 {
+    ul:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.work-details {
+    padding: .5em 0;
+    h2 {
+        font-size: 2em;
+        &.small {
             font-size: 1.2em;
         }
-        h3 {
-            font-size: 1em;
-        }
-        h2,
-        h3 {
-            padding-bottom: .3em;
-        }
-        p {
-            padding: .5em 0;
-        }
     }
-    .work-client-logo {
-        width: 200px;
+    h3 {
+        font-size: 1em;
+        padding-bottom: 1em;
     }
+    h2,
+    h3 {
+        padding-bottom: .3em;
+    }
+    p {
+        padding: .5em 0;
+    }
+    ul {
+        padding: .5em 0 1em;
+    }
+}
+
+.work-client-logo {
+    width: 200px;
 }
 
 .work-info {
-    width: 50%;
+    width: 52.5%;
     padding: 0 5%;
     align-self: center;
+    &.info-full {
+        width: 100%;
+    }
 }
 
 .work-media {
-    width: 50%;
+    width: 47.5%;
     align-self: flex-end;
 }
 
 .work-skill {
-    padding: .3em 1em;
+    padding: 0 .3em;
     border: 1px solid $grey;
     border-radius: 4px;
     margin-right: .5em;
@@ -51,8 +71,10 @@
     .sprite-skill {
         display: inline-block;
         vertical-align: middle;
+        @include transform(scale(.65));
     }
     span {
+        padding-right: .75em;
         line-height: 1.5rem;
         font-size: .8em;
     }
