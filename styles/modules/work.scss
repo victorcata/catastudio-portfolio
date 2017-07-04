@@ -5,27 +5,25 @@
     padding: 2em 1em;
     background-color: $white;
     text-align: center;
-    cursor: pointer;
     @include transition(all .3s ease);
-
     .work-logo {
         font-size: 3em;
         line-height: 0;
     }
-
+    &a {
+        cursor: pointer;
+    }
     h2 {
         padding: .5em;
     }
-
     .work-description {
         font-size: .9em;
     }
-
+    &.is-active,
     &:not(.work-empty):hover {
         background-color: $grey-darker;
         color: $white;
     }
-
     @include tabletPortrait {
         margin: 0;
         width: 250px;
@@ -38,7 +36,6 @@
     justify-content: center;
     background-color: transparent;
     cursor: default;
-
     p {
         align-self: center;
         font-size: 1.5em;

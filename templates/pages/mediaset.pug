@@ -1,0 +1,202 @@
+doctype html
+html
+    head
+        title Mediaset: Portfolio Víctor Catalina
+        meta(charset="utf-8")
+        meta(
+            name = "keywords" 
+            content = ""
+        )
+        meta(
+            name = "description"
+            content = ""
+        )
+        meta(
+            name = "viewport"
+            content = "width=device-width, initial-scale=1.0"
+        )
+        link(
+            href = "navicon.ico"
+            rel = "shortcut icon"
+            type = "image/x-icon"
+        )
+        link(
+            href = "styles/app.css"
+            rel = "stylesheet"
+        )
+body
+    //- Header
+    <header class="layout-header">
+        <a href="index.html" title="Portfolio Víctor Catalina" class="logo-catastudio logo-visible">
+            <span class="icon-catastudio" title="CataStudio"></span>
+            <span class="logo-title">VÍCTOR CATALINA HERMOSO</span>
+        </a>
+        <a id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        //- Menu
+        include ../partials/menu.pug
+    </header>
+    //- Main
+    main
+        <article class="work-body">
+            <div class="work-desc">
+                <div class="work-info">
+                    <div class="work-details">
+                        <h1>MEDIASET</h1>
+                        <p>Descripción del proyecto y bla bla bla Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+                        <p>Descripción del proyecto y bla bla bla Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+                    </div>
+                    <div class="work-details">
+                        <h2>Project Date</h2>
+                        <p>Oct 2015 - March 2016</p>
+                    </div>
+                </div>
+                <div class="work-media">
+                    <img src="" />
+                </div>
+            </div>
+            <div class="work-desc">
+                <div class="work-media">
+                    <img src="" />
+                </div>
+                <div class="work-info">
+                    <div class="work-details">
+                        <h1>PROJECT SKILLS</h1>
+                        <p>Descripción del proyecto y bla bla bla Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+                    </div>
+                    <div class="work-details">
+                        <ul>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-benchmarking"></div>
+                                    <span>Benchmarking</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-interaction"></div>
+                                    <span>Interaction Design</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-wireframing"></div>                                
+                                    <span>Wireframing</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-responsive"></div>                                
+                                    <span>Responsive Design</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-html5"></div>                        
+                                    <span>HTML5</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-css3"></div>                                    
+                                    <span>CSS3</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-javascript"></div>                                
+                                    <span>JavaScript</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-mvc"></div>                                
+                                    <span>ASP.NET MVC</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="work-skill">
+                                    <div class="sprite-skill is-azure"></div>                                
+                                    <span>Azure</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+        //- Work
+        <article class="layout-work section" data-menu-target="work">
+            <header class="section-header">
+                <h1>SOME OF MY WORK</h1>
+                <p>Most of my work has been for my company in Avanade but also for my University. That's why most of my work is restricted by confidentiality agreements but here you can see an overview of some of my projects.</p>
+            </header>
+            <div class="section-body">
+                <div class="work__section">
+                    <a class="work" href="mediam.html">
+                        <div class="work-logo">
+                            <span class="icon-mediamarkt"></span>
+                        </div>
+                        <h2>Media Markt</h2>
+                        <p class="work-description">UX Design and Front-End development of the e-commerce for Europe’s number one consumer electronics retailer</p>
+                    </a>
+                    <div class="work is-active">
+                        <div class="work-logo">
+                            <span class="icon-mediaset"></span>
+                        </div>
+                        <h2>Mediaset</h2>
+                        <p class="work-description">Full-Stack development of 20+ software applications for the leading group in television audience share in Spain</p>
+                    </div>
+                    <a class="work " href="uxfed.html">
+                        <div class="work-logo">
+                            <span class="icon-fed"></span>
+                        </div>
+                        <h2>UX and FED</h2>
+                        <p class="work-description">UX Design and Front-End development for many top clients via Avanade</p>
+                    </a>
+                    <a class="work " href="rtc.html">
+                        <div class="work-logo">
+                            <span class="icon-rtc"></span>
+                        </div>
+                        <h2>E-Learning in Real-Time Communication</h2>
+                        <p class="work-description">Project of collaborative e-learning using real-time communication</p>
+                    </a>
+                        <a class="work " href="dataviz.html">
+                        <div class="work-logo">
+                            <span class="icon-3d"></span>
+                        </div>
+                        <h2>3D and Data Visualization</h2>
+                        <p class="work-description">Some projects focused on graphic and data visualization both at university and Avanade</p>
+                    </a>
+                    <a class="work " href="instructor.html">
+                        <div class="work-logo">
+                            <span class="icon-instructor"></span>
+                        </div>
+                        <h2>Instructor</h2>
+                        <p class="work-description">Presentations used at some of my workshops in Front-End development</p>
+                    </a>
+                    <a class="work " href="analysis.html">
+                        <div class="work-logo">
+                            <span class="icon-analysis"></span>
+                        </div>
+                        <h2>Usability Analyst</h2>
+                        <p class="work-description">Usability analysis of websites and future Front-End development improvement</p>
+                    </a>
+                    <div class="work work-empty">
+                        <p>And many more...</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        //- Contact
+        include ../partials/contact.pug
+    //- Footer
+    include ../partials/footer.pug
+    //- Global
+    button(id="nav-top" class="btn-top is-hidden")
+    //-Scripts
+    include ../partials/scripts.pug

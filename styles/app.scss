@@ -3,7 +3,6 @@
 @import "./dependencies/colors.scss";
 @import "./dependencies/mixins.scss";
 @import "./dependencies/animations.scss";
-
 // Base
 @import "base/reset.scss";
 @import "base/base.scss";
@@ -12,8 +11,8 @@
 @import "base/images.scss";
 @import "base/sprites.scss";
 @import "base/grid.scss";
-
 // Layouts
 @import "layouts/*";
 // Modules
 @import "modules/*";
+@import "_work.scss";

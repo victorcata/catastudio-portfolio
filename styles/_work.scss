@@ -1,63 +1,59 @@
-@import "helpers/_variables.scss";
+.work-body {
+    padding-top: 5em;
+    background-color: $white;
+}
 
-/*.work {
+.work-desc {
     display: flex;
     display: -ms-flexbox;
-    height: calc(100vh - 50px);
-
-    .work-info, .work-media {
-        width: 50%;
+    padding: 5em 0;
+    ul li {
+        display: inline-block;
     }
-
-    .work-info {
-        padding: 0 5%;
-        align-self: center;
-    }
-
-    .work-media {
-        align-self: flex-end;
-    }
-
-    .work-skill {
-        padding: .3em 1em;
-        border: 1px solid $grey;
-        border-radius: 4px;
-        margin-right: .5em;
-        margin-bottom: .5em;
-
-        img {
-            float: left;
-            height: 1.5em;
-            margin-right: 5px;
-        }
-
-        span {
-            line-height: 1.5rem;
-            font-size: .8em;
-        }
-    }
-
     .work-details {
         padding: .5em 0;
-
         h2 {
             font-size: 1.2em;
         }
-
         h3 {
             font-size: 1em;
         }
-
-        h2, h3 {
+        h2,
+        h3 {
             padding-bottom: .3em;
         }
-
         p {
             padding: .5em 0;
         }
     }
-
     .work-client-logo {
         width: 200px;
     }
-}*/
+}
+
+.work-info {
+    width: 50%;
+    padding: 0 5%;
+    align-self: center;
+}
+
+.work-media {
+    width: 50%;
+    align-self: flex-end;
+}
+
+.work-skill {
+    padding: .3em 1em;
+    border: 1px solid $grey;
+    border-radius: 4px;
+    margin-right: .5em;
+    margin-bottom: .5em;
+    .sprite-skill {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    span {
+        line-height: 1.5rem;
+        font-size: .8em;
+    }
+}
