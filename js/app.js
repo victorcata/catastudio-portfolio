@@ -174,6 +174,7 @@ var app = app || {};
     }
 
     global.addEventToScroll(_controlsHeaderVisibility);
+    _controlsHeaderVisibility();
 })(window);
 (function(global){
     "use strict";

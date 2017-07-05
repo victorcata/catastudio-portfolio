@@ -11,6 +11,7 @@
     textarea {
         width: 100%;
         resize: none;
+        border: 1px solid $grey;
     }
 
     &:first-child label {

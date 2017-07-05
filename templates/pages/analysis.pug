@@ -27,7 +27,7 @@ html
 body
     //- Header
     <header class="layout-header">
-        <a href="index.html" title="Portfolio Víctor Catalina" class="logo-catastudio logo-visible">
+        <a href="index.html" title="Portfolio Víctor Catalina" class="logo-catastudio">
             <span class="icon-catastudio" title="CataStudio"></span>
             <span class="logo-title">VÍCTOR CATALINA HERMOSO</span>
         </a>
@@ -38,7 +38,21 @@ body
             <span></span>
         </a>
         //- Menu
-        include ../partials/menu.pug
+        nav(class="menu")
+            ul
+                li
+                    <a href="index.html" title="Home">
+                        span(class= "menu-opt") HOME
+                        span(class= "border")
+                    </a>
+
+                li(data-goto="work") 
+                    span(class="menu-opt") WORKS
+                    span(class="border")
+                    
+                li(data-goto="contact") 
+                    span(class="menu-opt") CONTACT
+                    span(class="border")
     </header>
     //- Main
     main
@@ -51,7 +65,7 @@ body
                         <p>Descripción del proyecto y bla bla bla Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
                     </div>
                     <div class="work-details">
-                        <h2>Project Date</h2>
+                        <h2 class="small">Project Date</h2>
                         <p>Oct. 2016 - Feb. 2017</p>
                     </div>
                 </div>
@@ -65,7 +79,7 @@ body
                 </div>
                 <div class="work-info">
                     <div class="work-details">
-                        <h1>PROJECT SKILLS</h1>
+                        <h2>SKILLS APPLIED</h2>
                         <p>Descripción del proyecto y bla bla bla Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
                     </div>
                     <div class="work-details">

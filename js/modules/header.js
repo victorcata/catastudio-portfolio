@@ -16,4 +16,5 @@
     }
 
     global.addEventToScroll(_controlsHeaderVisibility);
+    _controlsHeaderVisibility();
 })(window);
