@@ -9,7 +9,7 @@ var gulp = require("gulp"),
  * SASS
  */
 gulp.task("sass", function() {
-    return gulp.src("./styles/app.scss")
+    return gulp.src(["./styles/app.scss", "./styles/works.scss"])
         .pipe(sourcemaps.init())
         .pipe(bulkSass())
         .pipe(sass().on("error", sass.logError))
