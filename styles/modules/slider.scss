@@ -1,0 +1,63 @@
+$animation-time: 300ms;
+
+.slider .slider-header {
+    padding-bottom: 30px;
+    font-size: 51px;
+    font-weight: 300;
+    text-align: center;
+    color: #DDD;
+}
+
+.slider .slider-body {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider .slider-slide {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include transition(all $animation-time ease);
+
+    &.is-active {
+        display: block;
+        position: relative;
+        transition: none;
+    }
+
+    &.to-left {
+        @include transform(translateX(-100%));
+        @include transition(all $animation-time ease !important);
+    }
+
+    &.to-show {
+        display: block;
+        @include transform(translate(100%, 0%));
+    }
+
+    &.to-show-anime {
+        @include transform(translate(0%, 0%) !important);
+    }
+}
+
+.slider .slider-pags {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    text-align: center;
+
+    li {
+        width: 12px;
+        height: 12px;
+        margin: 0 3px;
+        border-radius: 50%;
+        background-color: #DDD;
+        cursor: pointer;
+
+        &.is-active {
+            background-color: #999;
+        }
+    }
+}

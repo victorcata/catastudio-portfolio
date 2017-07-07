@@ -44,7 +44,8 @@ gulp.task("scripts", function() {
             "./js/modules/skills.js",
             "./js/modules/social.js",
             "./js/modules/parallax.js",
-            "./js/modules/email.js"
+            "./js/modules/email.js",
+            "./js/modules/slider.js"
         ])
         .pipe(concat("app.js"))
         .pipe(gulp.dest("./js"));

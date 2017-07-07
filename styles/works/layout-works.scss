@@ -20,6 +20,10 @@
   text-transform: uppercase;
 }
 
+.work-container {
+  padding: 2em 0;
+}
+
 .work-container:nth-child(odd) {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
@@ -27,7 +31,7 @@
 .work-desc, .work-body {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 2rem 2rem 0;
+  padding: 2rem;
 }
 
 .work-desc h1 {
@@ -43,7 +47,7 @@
   -ms-display: flex;
   display: flex;
   align-items: center;
-  padding: 4em 0;
+  padding: 2em 0;
 }
 
 .work-body .col {
@@ -55,8 +59,13 @@
 }
 
 .col img {
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
+
+  &.full {
+    margin: 0 1em;
+    max-width: none;
+  }
 }
 
 .skills {
