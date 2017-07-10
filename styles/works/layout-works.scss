@@ -1,83 +1,84 @@
 .works {
-  background-color: $white;
+    background-color: $white;
 }
 
 .works hr {
-  max-width: 50%;
+    max-width: 50%;
 }
 
-.works h2, .works h3 {
-  color: $grey-darker;
+.works h2,
+.works h3 {
+    color: $grey-darker;
 }
 
 .works h2 {
-  font-size: 2em;
+    font-size: 2em;
 }
 
 .works h3 {
-  font-size: 1em;
-  font-weight: 500;
-  text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .work-container {
-  padding: 2em 0;
+    padding: 2em 0;
 }
 
 .work-container:nth-child(odd) {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-.work-desc, .work-body {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 2rem;
+.work-desc,
+.work-body {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .work-desc h1 {
-  font-weight: 900;
-  color: $grey-darker;
+    font-weight: 900;
+    color: $grey-darker;
 }
 
 .work-desc p {
-  padding-top: 1em;
+    padding-top: 1em;
 }
 
 .work-body .line {
-  -ms-display: flex;
-  display: flex;
-  align-items: center;
-  padding: 2em 0;
+    -ms-display: flex;
+    display: flex;
+    align-items: center;
+    padding: 2em 0;
 }
 
 .work-body .col {
-  width: 50%;
+    width: 50%;
 }
 
-.col p, .col ul {
-  padding: 1rem 0;
+.col p,
+.col ul {
+    padding: 1rem 0;
 }
 
 .col img {
-  max-width: 600px;
-  margin: auto;
-
-  &.full {
-    margin: 0 1em;
-    max-width: none;
-  }
+    max-width: 600px;
+    margin: auto;
+    &.full {
+        margin: 0 1em;
+        max-width: none;
+    }
 }
 
 .skills {
-  li {
-      float: left;
-  }
-
-  &:after {
-      content: '';
-      display: table;
-      clear: both;
-  }
+    li {
+        float: left;
+    }
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
 }
 
 .work-skill {
