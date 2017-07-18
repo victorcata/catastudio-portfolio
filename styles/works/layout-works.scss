@@ -21,10 +21,9 @@
     text-transform: uppercase;
 }
 
-.work-container {
-    padding: 2em 0;
-}
-
+// .work-container {
+//     padding: 2em 0;
+// }
 .work-container:nth-child(odd) {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
@@ -57,8 +56,9 @@
 }
 
 .col p,
+.col h3,
 .col ul {
-    padding: 1rem 0;
+    padding-top: 1rem;
 }
 
 .col img {
@@ -97,4 +97,14 @@
         line-height: 1.5rem;
         font-size: .8em;
     }
+}
+
+.works p {
+    font-weight: 200;
+    line-height: 1.4;
+}
+
+.works strong {
+    font-weight: 600;
+    color: #333;
 }
