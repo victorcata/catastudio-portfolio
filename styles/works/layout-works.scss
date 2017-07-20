@@ -55,6 +55,10 @@
     padding-top: 1em;
 }
 
+.work-desc a {
+    border-bottom: 1px solid $grey-dark;
+}
+
 .work-body .line {
     padding: 1em 0;
 
@@ -78,7 +82,7 @@
 
 .col img {
     margin: auto;
-    padding: 1em 0;
+    padding: 1em .5em;
 
     @include desktopFullhd {
         max-width: 600px;
@@ -95,7 +99,8 @@
     padding-bottom: 1rem;
 
     li {
-        float: left;
+        display: inline-block;
+        margin: 0 -3px;
     }
     &:after {
         content: '';
@@ -109,6 +114,8 @@
 }
 
 .work-skill {
+    min-height: 32px;
+    line-height: 32px;
     border: 1px solid $grey;
     border-radius: 4px;
     margin-right: .5em;
@@ -123,6 +130,12 @@
         padding-right: .75em;
         line-height: 1.5rem;
         font-size: .8em;
+    }
+
+    &.no-img {
+        span {
+            padding-left: .75em;
+        }
     }
 
     @include mobileLandscape {
