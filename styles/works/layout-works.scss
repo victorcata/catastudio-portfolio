@@ -1,5 +1,10 @@
 .works {
+    padding-top: 40px;
     background-color: $white;
+
+    @include tabletLandscape {
+        padding-top: 0;
+    }
 }
 
 .works hr {
@@ -21,9 +26,6 @@
     text-transform: uppercase;
 }
 
-// .work-container {
-//     padding: 2em 0;
-// }
 .work-container:nth-child(odd) {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
@@ -32,12 +34,21 @@
 .work-body {
     max-width: 1500px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
+
+    @include desktop {
+        padding: 2rem;
+    }
 }
 
 .work-desc h1 {
+    font-size: 2em;
     font-weight: 900;
     color: $grey-darker;
+
+    @include tabletLandscape {
+        font-size: 2.5em;
+    }
 }
 
 .work-desc p {
@@ -45,14 +56,18 @@
 }
 
 .work-body .line {
-    -ms-display: flex;
-    display: flex;
-    align-items: center;
-    padding: 2em 0;
-}
+    padding: 1em 0;
 
-.work-body .col {
-    width: 50%;
+    @include tabletLandscape {
+        -ms-display: flex;
+        display: flex;
+        align-items: center;
+        padding: 2em 0;
+
+        .col {
+            width: 50%;
+        }
+    }
 }
 
 .col p,
@@ -62,15 +77,23 @@
 }
 
 .col img {
-    max-width: 600px;
     margin: auto;
-    &.full {
-        margin: 0 1em;
-        max-width: none;
+    padding: 1em 0;
+
+    @include desktopFullhd {
+        max-width: 600px;
+    }
+}
+
+@media screen and (min-width: $mobileLandscape) and (max-width: $tabletPortrait) {
+    .col img {
+        max-width: 600px;
     }
 }
 
 .skills {
+    padding-bottom: 1rem;
+
     li {
         float: left;
     }
@@ -79,10 +102,13 @@
         display: table;
         clear: both;
     }
+
+    @include tabletLandscape {
+        padding-bottom: 0;
+    }
 }
 
 .work-skill {
-    padding: 0 .3em;
     border: 1px solid $grey;
     border-radius: 4px;
     margin-right: .5em;
@@ -93,15 +119,29 @@
         @include transform(scale(.65));
     }
     span {
+        margin-left: -.25em;
         padding-right: .75em;
         line-height: 1.5rem;
         font-size: .8em;
     }
+
+    @include mobileLandscape {
+        padding: 0 .3em;
+
+        span {
+            margin-left: 0;
+        }
+    }
 }
 
 .works p {
+    font-size: .9em;
     font-weight: 200;
     line-height: 1.4;
+
+    @include tabletLandscape {
+        font-size: 1em;
+    }
 }
 
 .works strong {
