@@ -1,7 +1,6 @@
 .works {
     padding-top: 40px;
     background-color: $white;
-
     @include tabletLandscape {
         padding-top: 0;
     }
@@ -35,7 +34,6 @@
     max-width: 1500px;
     margin: 0 auto;
     padding: 1rem;
-
     @include desktop {
         padding: 2rem;
     }
@@ -45,7 +43,6 @@
     font-size: 2em;
     font-weight: 900;
     color: $grey-darker;
-
     @include tabletLandscape {
         font-size: 2.5em;
     }
@@ -61,13 +58,11 @@
 
 .work-body .line {
     padding: 1em 0;
-
     @include tabletLandscape {
         -ms-display: flex;
         display: flex;
         align-items: center;
         padding: 2em 0;
-
         .col {
             width: 50%;
         }
@@ -82,10 +77,10 @@
 
 .col img {
     margin: auto;
-    padding: 1em .5em;
-
+    padding: 1em;
     @include desktopFullhd {
         max-width: 600px;
+        padding: 1em .5em;
     }
 }
 
@@ -97,7 +92,6 @@
 
 .skills {
     padding-bottom: 1rem;
-
     li {
         display: inline-block;
         margin: 0 -3px;
@@ -107,7 +101,6 @@
         display: table;
         clear: both;
     }
-
     @include tabletLandscape {
         padding-bottom: 0;
     }
@@ -131,16 +124,13 @@
         line-height: 1.5rem;
         font-size: .8em;
     }
-
     &.no-image {
         span {
             padding-left: .75em;
         }
     }
-
     @include mobileLandscape {
         padding: 0 .3em;
-
         span {
             margin-left: 0;
         }
@@ -151,7 +141,6 @@
     font-size: .9em;
     font-weight: 200;
     line-height: 1.4;
-
     @include tabletLandscape {
         font-size: 1em;
     }

@@ -1,15 +1,15 @@
 var app = app || {};
 
-(function(global) {
+(function (global) {
     "use strict";
 
     var cbOnScroll = [];
 
     /**
-     *   Gets the scroll top position compatibility with IE
-     *   @return {int} Scroll Top value
-     */
-    global.ScrollTop = function() {
+    *   Gets the scroll top position compatibility with IE
+    *   @return {int} Scroll Top value
+    */
+    global.ScrollTop = function () {
         return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
     }
 
@@ -17,8 +17,8 @@ var app = app || {};
      * Add event to scroll
      * @param {function} callback Function to execute when the user scrolls
      */
-    global.addEventToScroll = function(...callback) {
-        for (var cb of callback) {
+    global.addEventToScroll = function (...callback) {
+        for(var cb of callback) {
             if (cb !== undefined && typeof cb === "function") {
                 cbOnScroll.push(cb);
             }
@@ -28,17 +28,17 @@ var app = app || {};
     /**
      * OnScroll event
      */
-    global.onscroll = function() {
+    global.onscroll = function () {
         for (let i = 0; i < cbOnScroll.length; i++) {
             cbOnScroll[i]();
         }
     }
 
     /**
-     *   Resolve if an element is visible on the viewport
-     *   @return {boolean} True if it's visible
-     */
-    Object.prototype.isOnScreen = function() {
+    *   Resolve if an element is visible on the viewport
+    *   @return {boolean} True if it's visible
+    */
+    Object.prototype.isOnScreen = function () {
         var coords = this.getCoords();
         if (coords.top < ScrollTop()) return;
         if (coords.top > ScrollTop() && coords.top < (ScrollTop() + window.innerHeight + 100)) return true;
@@ -46,10 +46,10 @@ var app = app || {};
     };
 
     /**
-     *   Return the coordinates top and left of an element
-     *   @return {object} top and left coordinates
-     */
-    Object.prototype.getCoords = function() {
+    *   Return the coordinates top and left of an element
+    *   @return {object} top and left coordinates
+    */
+    Object.prototype.getCoords = function () {
         var box = this.getBoundingClientRect(),
             body = document.body,
             docEl = document.documentElement;
@@ -66,27 +66,27 @@ var app = app || {};
         return { top: Math.round(top), left: Math.round(left) };
     }
 })(window);
-(function(global) {
+(function(global){
     "use strict";
-
+    
     var app = global.app || {};
 
-    app.scroll = (function() {
+    app.scroll = (function(){
         const SCROLL_INTERVAL = 10,
-            SCROLL_MOVE = 100;
+              SCROLL_MOVE = 100;
 
         var intervalScrolling = null;
-
+    
         function _maxScroll() {
             var body = document.body,
                 html = document.documentElement;
 
-            return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight) - document.body.offsetHeight;
+            return Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - document.body.offsetHeight;
         }
         /**
-         *   Scroll the page to a determinated position
-         *   @param {object} to: Element where to scroll
-         */
+        *   Scroll the page to a determinated position
+        *   @param {object} to: Element where to scroll
+        */
         function _scrollPageTo(to) {
             if (to === undefined || to === null) return;
 
@@ -123,16 +123,16 @@ var app = app || {};
         }
 
         /**
-         *   Animate the scroll to the top of the window
-         */
+        *   Animate the scroll to the top of the window
+        */
         function _scrollToTop() {
             _scrollPageTo(0);
         };
-
+        
         /**
-         *   Sets the scroll top position compatibility with IE
-         *   @param {int} value: Scroll Top value
-         */
+        *   Sets the scroll top position compatibility with IE
+        *   @param {int} value: Scroll Top value
+        */
         function _setScrollTop(value) {
             if (window.navigator.userAgent.indexOf('MSIE') > 0) {
                 document.documentElement.scrollTop = value;
@@ -146,7 +146,7 @@ var app = app || {};
         /**
          * Navigates to top button
          */
-        (function() {
+        (function () {
             document.getElementById("nav-top").addEventListener('click', _scrollToTop);
         })();
 
@@ -176,9 +176,9 @@ var app = app || {};
     global.addEventToScroll(_controlsHeaderVisibility);
     _controlsHeaderVisibility();
 })(window);
-(function(global) {
+(function(global){
     "use strict";
-
+    
     var app = global.app || {};
 
     /**
@@ -201,7 +201,7 @@ var app = app || {};
 
             let prevHeight = _el.offsetHeight;
             _list.style.height = 0;
-            setTimeout(function() {
+            setTimeout(function () {
                 _list.style.height = prevHeight + 'px';
             }, DELAY_SHOW);
         }
@@ -211,7 +211,7 @@ var app = app || {};
          */
         function _hide() {
             _list.style.height = 0;
-            setTimeout(function() {
+            setTimeout(function () {
                 _list.removeAttribute('style');
                 _header.classList.remove('is-menuopen');
             }, DELAY_HIDE);
@@ -224,23 +224,23 @@ var app = app || {};
     })();
 })(window);
 
-(function() {
+(function(){
     "use strict";
 
     let _navMenu = document.getElementById('nav-toggle'),
         _menu = document.querySelector('.menu');
 
     /**
-     *   Shows or hides the navigation menu on mobile resolutions
-     */
+    *   Shows or hides the navigation menu on mobile resolutions
+    */
     function ToggleMenu() {
         if (this.offsetParent === null) return;
-        (_menu.children[0].style.display === "block") ? app.menu.hide(): app.menu.show();
+        (_menu.children[0].style.display === "block") ? app.menu.hide() : app.menu.show();
     }
 
     /**
-     *   Scroll to the container position
-     */
+    *   Scroll to the container position
+    */
     function onClickMenuOption(evt) {
         evt.stopImmediatePropagation();
 
@@ -255,46 +255,46 @@ var app = app || {};
     /**
      * Initialize events
      */
-    (function() {
+    (function(){
         _navMenu.addEventListener('click', ToggleMenu);
         _menu.addEventListener("click", onClickMenuOption);
     })();
 })();
-(function(global) {
+(function(global){
     "use strict";
-
+    
     var app = app || {};
 
-    app.skills = (function() {
+    app.skills = (function(){
         const STYLE_ANIMATION = "width 1s .250s ease-out",
             HOVER_INTENT_DELAY = 350;
 
         var skills = document.getElementsByClassName('skill'),
             timeoutIn = null;
-
+        
         /**
-         *   Shows the level of each skill with an animation
-         */
+        *   Shows the level of each skill with an animation
+        */
         function _animeLevel() {
-            var arrSkills = Array.prototype.slice.call(skills, 0);
-            for (var item of arrSkills) {
+            for (let item of skills) {
                 var level = item.querySelector('.percentage');
                 if (item.isOnScreen()) {
                     level.style.width = level.getAttribute('data-level') + '%';
                     level.style.transition = STYLE_ANIMATION;
-                } else {
+                }
+                else {
                     level.removeAttribute('style');
                 }
             }
         };
 
         /**
-         * Shows the details of a skill
-         */
+        * Shows the details of a skill
+        */
         function _showDetails() {
             var self = this;
 
-            timeoutIn = setTimeout(function() {
+            timeoutIn = setTimeout(function () {
                 timeoutIn = null;
 
                 var details = self.querySelector('.skill-extra');
@@ -304,7 +304,7 @@ var app = app || {};
                 if (logo !== undefined) details.appendChild(logo.cloneNode(true));
 
                 function setHeight(height) {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         details.style.height = height + 'px'
                         self.classList.add('is-detailed');
                     }, 50)
@@ -314,8 +314,8 @@ var app = app || {};
         }
 
         /**
-         *   Hide the details of the skill
-         */
+        *   Hide the details of the skill
+        */
         function _hideDetails() {
             var details = this.querySelector('.skill-extra');
             if (details === null) return;
@@ -336,12 +336,12 @@ var app = app || {};
 
 
         /**
-         *   Return the height of the container to prepare it for the animation
-         *   @param {object} container: Skill details container
-         *   @param {function} callback: Function to execute after calculate the height 
-         *   @return {number} Value of the details container height
-         */
-        var _getDetailsContainerHeight = function(container, callback) {
+        *   Return the height of the container to prepare it for the animation
+        *   @param {object} container: Skill details container
+        *   @param {function} callback: Function to execute after calculate the height 
+        *   @return {number} Value of the details container height
+        */
+        var _getDetailsContainerHeight = function (container, callback) {
             container.style.height = 'auto';
             var height = container.offsetHeight;
             container.style.height = 0;
@@ -377,59 +377,59 @@ var app = app || {};
     })();
 })(window);
 
-(function(global) {
+(function (global) {
     "use strict";
 
     var app = app || {};
 
-    app.social = (function() {
+    app.social = (function () {
         const MARGIN_CHANGE = 50;
 
         var _links = document.getElementById('rrss'),
             navTop = document.getElementById('nav-top');
 
         /**
-         *   Controls the visibility of the scroll to top button
-         */
+        *   Controls the visibility of the scroll to top button
+        */
         var _ScrollTopVisibility = function() {
             if (navTop == undefined) return;
 
-            (ScrollTop() == 0) ? navTop.classList.add('is-hidden'): navTop.classList.remove('is-hidden');
+            (ScrollTop() == 0) ? navTop.classList.add('is-hidden') : navTop.classList.remove('is-hidden');
         }
 
         /**
          * Checks if the social icons are on top of the footer
          * @return {bool} True is the icons are on top of the footer
          */
-        var _isOnFooter = function() {
+        var _isOnFooter = function () {
             var fullHeight = global.ScrollTop() + document.body.offsetHeight;
 
             return global.ScrollTop() >= 0 && fullHeight + MARGIN_CHANGE < document.body.scrollHeight;
         }
 
         /**
-         *   Controls the visibility of the social media buttons
-         */
+        *   Controls the visibility of the social media buttons
+        */
         var _SocialMediaVisibility = function() {
-            (_isOnFooter()) ? _links.classList.add('is-floating'): _links.classList.remove('is-floating');
+            (_isOnFooter()) ? _links.classList.add('is-floating') : _links.classList.remove('is-floating');
         }
 
         global.addEventToScroll(_SocialMediaVisibility, _ScrollTopVisibility);
     })();
 })(window);
-(function(global) {
+(function (global) {
     const SPEED_PARALLAX = 100;
 
     var _itemsParallax = document.querySelectorAll('[data-parallax-y]')
 
 
     /**
-     *   Controls the parallax movement of the layers
-     */
+    *   Controls the parallax movement of the layers
+    */
     var _parallax = function() {
         let scrollTop = global.ScrollTop();
 
-        Array.prototype.forEach.call(_itemsParallax, function(item) {
+        Array.prototype.forEach.call(_itemsParallax, function (item) {
             // Parameters
             var motionY = item.getAttribute('data-parallax-y') * SPEED_PARALLAX,
                 motionX = item.getAttribute('data-parallax-x') * SPEED_PARALLAX;
@@ -445,22 +445,22 @@ var app = app || {};
 
     global.addEventToScroll(_parallax);
 })(window);
-(function() {
+(function () {
     "use strict";
 
     const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        EMAILJS_SERVICE_ID = "default_service",
-        EMAILJS_TEMPLATE_ID = "template_LYoOpR50",
-        SENDING_SUCCESS = "Message sended",
-        SENDING_ERROR = "Sorry, there was a problem. Try contacting by Linkedin, Thanks!"
+          EMAILJS_SERVICE_ID = "default_service",
+          EMAILJS_TEMPLATE_ID = "template_LYoOpR50",
+          SENDING_SUCCESS = "Message sended",
+          SENDING_ERROR = "Sorry, there was a problem. Try contacting by Linkedin, Thanks!"
 
     emailjs.init("user_IkbBM8PiQ7SFBY6gIdoZA");
 
     /**
-     *   Validate the fields of the form
-     *   @return {boolean} True if every fields is filled right
-     */
-    var _validateFields = function() {
+    *   Validate the fields of the form
+    *   @return {boolean} True if every fields is filled right
+    */
+    var _validateFields = function () {
         var name = document.getElementById('name'),
             email = document.getElementById('email'),
             comments = document.getElementById('comments'),
@@ -486,15 +486,15 @@ var app = app || {};
     /**
      * Clears the error styles
      */
-    var _clearFieldError = function() {
+    var _clearFieldError = function () {
         this.classList.remove('is-error');
     }
 
     /**
-     *   Append a message with the result of sending the email
-     *   @param {boolean} success: True if the message was send it
-     */
-    var _responseMessage = function(success) {
+    *   Append a message with the result of sending the email
+    *   @param {boolean} success: True if the message was send it
+    */
+    var _responseMessage = function (success) {
         var container = document.createElement('div'),
             msg = document.createElement('p');
 
@@ -507,27 +507,27 @@ var app = app || {};
 
         container.style.height = 0;
         document.getElementsByClassName('contact-form')[0].appendChild(container);
-        setTimeout(function() {
+        setTimeout(function () {
             container.style.height = '3em';
         }, 100);
 
-        setTimeout(function() {
+        setTimeout(function () {
             _enableButton();
             container.style.height = 0;
-            setTimeout(function() {
+            setTimeout(function () {
                 container.parentElement.removeChild(container);
             }, 1000);
         }, 1000);
     }
 
-    var _disableButton = function() {
+    var _disableButton = function () {
         var btn = document.getElementById("send-email");
 
         btn.disabled = true;
         btn.innerText = "SENDING...";
     }
 
-    var _enableButton = function() {
+    var _enableButton = function () {
         var btn = document.getElementById("send-email");
 
         btn.removeAttribute("disabled");
@@ -535,9 +535,9 @@ var app = app || {};
     }
 
     /**
-     *   Send an email
-     */
-    var _sendEmail = function(evt) {
+    *   Send an email
+    */
+    var _sendEmail = function (evt) {
         evt.preventDefault();
         _disableButton();
 
@@ -549,11 +549,11 @@ var app = app || {};
         };
 
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-            .then(function(response) {
-                _responseMessage(true);
-            }, function(err) {
-                _responseMessage(false);
-            });
+                .then(function (response) {
+                    _responseMessage(true);
+                }, function (err) {
+                    _responseMessage(false);
+                });
     }
 
     /**
@@ -564,7 +564,7 @@ var app = app || {};
 
         // Focus on fields
         let fields = document.querySelectorAll('.contact-form input, .contact-form textarea');
-        Array.prototype.forEach.call(fields, function(item) {
+        Array.prototype.forEach.call(fields, function (item) {
             item.addEventListener('focus', _clearFieldError);
         });
     };
@@ -577,8 +577,8 @@ var app = app || {};
 /**
  * Slider
  */
-(function(d) {
-    app.slider = (function() {
+(function (d) {
+    app.slider = (function () {
         let _delay = 5000,
             _els = d.getElementsByClassName('slider'),
             _sliders = [];
@@ -607,12 +607,12 @@ var app = app || {};
          */
         function _animate(actual, next) {
             next.classList.add("to-show");
-            setTimeout(function() {
+            setTimeout(function () {
                 actual.classList.add("to-left");
                 next.classList.add("to-show-anime");
             }, 100);
 
-            setTimeout(function() {
+            setTimeout(function () {
                 next.classList.add("is-active");
                 next.classList.remove("to-show", "to-show-anime");
                 actual.classList.remove("is-active", "to-left");
@@ -642,7 +642,7 @@ var app = app || {};
          */
         function _initSlider(item) {
             let delay = parseInt(item.getAttribute("data-delay"));
-            setInterval(function() {
+            setInterval(function () {
                 _nextSlide(item);
             }, delay);
         }
