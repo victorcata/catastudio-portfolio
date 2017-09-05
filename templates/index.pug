@@ -6,10 +6,16 @@ body
     include partials/header.pug
     //- Main
     main
-        //- Home
-        include partials/home.pug
-        // - Highlight
-        include partials/highlight.pug
+        <div itemscope itemtype="http://schema.org/Person">
+            //- Home
+            include partials/home.pug
+            // - Highlight
+            include partials/highlight.pug
+            <meta itemprop="birthPlace" content="Madrid, Spain" />
+            <meta itemprop="nationality" content="Spanish" />
+            <meta itemprop="email" content="victor.cata82@gmail.com" />
+            <meta itemprop="image" content="assets/images/Victor_Catalina.png" />
+        </div>
         //- Skills
         include partials/skills.pug
         //- Certifications
