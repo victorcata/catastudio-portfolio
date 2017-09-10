@@ -81,7 +81,9 @@ var app = app || {};
             var body = document.body,
                 html = document.documentElement;
 
-            return Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ) - document.body.offsetHeight;
+            var isHeaderFixed = document.querySelector('.layout-header.is-fixed') !== null;
+
+            return Math.max(isHeaderFixed ? body.scrollHeight : body.scrollHeight - 53, body.offsetHeight, html.clientHeight, isHeaderFixed ? html.scrollHeight : html.scrollHeight - 53, html.offsetHeight ) - document.body.offsetHeight;
         }
         /**
         *   Scroll the page to a determinated position
