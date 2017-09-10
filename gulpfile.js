@@ -3,7 +3,11 @@ var gulp = require("gulp"),
     sourcemaps = require("gulp-sourcemaps"),
     bulkSass = require('gulp-sass-bulk-import'),
     pug = require("gulp-pug"),
-    concat = require("gulp-concat");
+    concat = require("gulp-concat"),
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglify'),
+    minify = require('gulp-minify'),
+    pump = require('pump');
 
 /**
  * SASS
@@ -34,6 +38,20 @@ gulp.task("pug", function() {
 });
 
 /**
+ * UGLIFY
+ */
+gulp.task('uglify', function(){
+  gulp.src('./js/modules/database.js')
+    .pipe(babel({
+        presets: ['es2015']
+    }))
+    .pipe(uglify().on('error', function(e){
+        console.log(e);
+     }))
+    .pipe(gulp.dest('./js'));
+});
+
+/**
  * Scripts
  */
 gulp.task("scripts", function() {
@@ -45,10 +63,11 @@ gulp.task("scripts", function() {
             "./js/modules/social.js",
             "./js/modules/parallax.js",
             "./js/modules/email.js",
-            "./js/modules/slider.js"
+            "./js/modules/slider.js",
+            "./js/database.js"
         ])
         .pipe(concat("app.js"))
         .pipe(gulp.dest("./js"));
 });
 
-gulp.task("default", ["sass", "pug", "scripts"]);
+gulp.task("default", ["sass", "pug", "uglify", "scripts"]);

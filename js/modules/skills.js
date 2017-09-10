@@ -16,7 +16,7 @@
         function _animeLevel() {
             for (let item of skills) {
                 var level = item.querySelector('.percentage');
-                if (item.isOnScreen()) {
+                if (global.isOnScreen.call(item)) {
                     level.style.width = level.getAttribute('data-level') + '%';
                     level.style.transition = STYLE_ANIMATION;
                 }

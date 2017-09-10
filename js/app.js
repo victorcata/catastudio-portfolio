@@ -26,6 +26,39 @@ var app = app || {};
     }
 
     /**
+     * Sets a cookie 
+     * @param {string} cname Name of the cookie
+     * @param {string} cname Value of the cookie
+     * @param {number} cname Number of days before expiration
+     */
+    global.setCookie = function(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    /**
+     * Gest a cookie by name
+     * @param {string} cname Name of the cookie
+     */
+    global.getCookie = function(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    /**
      * OnScroll event
      */
     global.onscroll = function () {
@@ -38,8 +71,8 @@ var app = app || {};
     *   Resolve if an element is visible on the viewport
     *   @return {boolean} True if it's visible
     */
-    Object.prototype.isOnScreen = function () {
-        var coords = this.getCoords();
+    global.isOnScreen = function () {
+        var coords = getCoords.call(this);
         if (coords.top < ScrollTop()) return;
         if (coords.top > ScrollTop() && coords.top < (ScrollTop() + window.innerHeight + 100)) return true;
         return false;
@@ -49,7 +82,7 @@ var app = app || {};
     *   Return the coordinates top and left of an element
     *   @return {object} top and left coordinates
     */
-    Object.prototype.getCoords = function () {
+    var getCoords = function () {
         var box = this.getBoundingClientRect(),
             body = document.body,
             docEl = document.documentElement;
@@ -280,7 +313,7 @@ var app = app || {};
         function _animeLevel() {
             for (let item of skills) {
                 var level = item.querySelector('.percentage');
-                if (item.isOnScreen()) {
+                if (global.isOnScreen.call(item)) {
                     level.style.width = level.getAttribute('data-level') + '%';
                     level.style.transition = STYLE_ANIMATION;
                 }
