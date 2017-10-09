@@ -1,7 +1,7 @@
 .layout-home {
     display: flex;
     justify-content: center;
-    min-height: 400px;
+    height: 400px;
     background-color: $white;
 
     .title {
@@ -9,6 +9,6 @@
     }
 
     @include desktop {
-        min-height: 650px;
+        height: 650px;
     }
 }

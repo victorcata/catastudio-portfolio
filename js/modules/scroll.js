@@ -68,13 +68,25 @@
         *   @param {int} value: Scroll Top value
         */
         function _setScrollTop(value) {
-            if (window.navigator.userAgent.indexOf('MSIE') > 0) {
-                document.documentElement.scrollTop = value;
-                return document.documentElement.scrollTop;
-            } else {
+            // 09-10-17: Suddenly work document.body.scrollTop doesn't on Chrome
+            var prev = document.documentElement.scrollTop;
+            document.documentElement.scrollTop = value;
+            
+            // Nothing happen
+            if (document.documentElement.scrollTop === prev) {
                 document.body.scrollTop = value;
                 return document.body.scrollTop;
             }
+
+            return document.documentElement.scrollTop;
+
+            // if (window.navigator.userAgent.indexOf('MSIE') > 0) {
+            //     document.documentElement.scrollTop = value;
+            //     return document.documentElement.scrollTop;
+            // } else {
+            //     document.body.scrollTop = value;
+            //     return document.body.scrollTop;
+            // }
         }
 
         /**

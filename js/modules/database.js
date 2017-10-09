@@ -1,11 +1,11 @@
 (function(global){
   var config = {
-    apiKey: "??",
-    authDomain: "??",
-    databaseURL: "??",
-    projectId: "??",
-    storageBucket: "??",
-    messagingSenderId: "??"
+    apiKey: "AIzaSyDaRFo82GmVTAygprgD1frGzcflcanFgi4",
+    authDomain: "catastudio-d02bd.firebaseapp.com",
+    databaseURL: "https://catastudio-d02bd.firebaseio.com",
+    projectId: "catastudio-d02bd",
+    storageBucket: "catastudio-d02bd.appspot.com",
+    messagingSenderId: "171539071265"
   };
   firebase.initializeApp(config);
 

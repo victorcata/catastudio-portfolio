@@ -43,7 +43,7 @@ gulp.task("pug", function() {
 gulp.task('uglify', function(){
   gulp.src('./js/modules/database.js')
     .pipe(babel({
-        presets: ['es2015']
+        presets: ['es2015-ie']
     }))
     .pipe(uglify().on('error', function(e){
         console.log(e);
